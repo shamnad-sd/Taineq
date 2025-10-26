@@ -173,7 +173,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 py-[100px] px-[50px] md:px-[150px]">
+    <footer className="bg-white border-t border-gray-100 py-[50px] md:py-[100px] px-[20px] md:px-[150px]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12">
         {/* Left: Logo & Address */}
         <div className="flex flex-col gap-6 lg:gap-8 lg:w-1/3">
