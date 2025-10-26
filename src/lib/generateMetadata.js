@@ -35,8 +35,8 @@ export function generateMetadata(data, nofollow, path) {
         // Always use your custom favicon first
         ...(true
           ? [
-              { url: 'https://admin.eeis.ae/wp-content/uploads/2025/06/emerald-logo-01-1-1.png', sizes: '16x16', type: 'image/png' },
-              { url: 'https://admin.eeis.ae/wp-content/uploads/2025/06/emerald-logo-01-1-1.png', sizes: '32x32', type: 'image/png' },
+              { url: 'https://admin.taineq.com/wp-content/uploads/2025/10/TAINEQ-final-logo-1-1-e1761454505491.png', sizes: '16x16', type: 'image/png' },
+              { url: 'https://admin.taineq.com/wp-content/uploads/2025/10/TAINEQ-final-logo-1-1-e1761454505491.png', sizes: '32x32', type: 'image/png' },
             ]
           // If you want to fallback to OG image ONLY if favicon is missing, you can check for its existence
           : isYoastData && seo?.og_image?.length
