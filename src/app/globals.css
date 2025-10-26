@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "@wordpress/block-library/build-style/style.css";
+
+
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.Primary-font {
+  font-family: "SohoGothicPro-Medium", sans-serif;
+}
+
+.Primary-color {
+  color: #001568;
+}
+.Secondary-color{
+  color : #0065EC;
+}
