@@ -1,6 +1,5 @@
 import { Inter, Montserrat, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import { SiteProvider } from "@/context/siteContext";
 import HeaderMain from "./Components/HeaderMain";
 import FooterMain from "./Components/FooterMain";
 import { Toaster } from "react-hot-toast";
@@ -39,7 +38,6 @@ export default function RootLayout({ children }) {
           zIndex={1600}
           showAtBottom={false}
         />
-        <SiteProvider>
           <HeaderMain />
           <Toaster
             position="top-center"
@@ -84,7 +82,6 @@ export default function RootLayout({ children }) {
             </AnimationProvider>
           </AOSProvider>
           <FooterMain />
-        </SiteProvider>
       </body>
     </html>
   );
