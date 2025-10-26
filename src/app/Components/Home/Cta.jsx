@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ContactModal from "../UI/ContactModal";
 
-export default function HeroSection({HomePageData}) {
+export default function Cta({HomePageData}) {
   const [what, setWhat] = useState("");
   const [where, setWhere] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +14,10 @@ export default function HeroSection({HomePageData}) {
   }
 
   return (
-    <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden">
+      <div>
+        
+      </div>
       {/* Video Background */}
       <video
         autoPlay
@@ -23,7 +26,7 @@ export default function HeroSection({HomePageData}) {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src={`${HomePageData?.acf?.hero?.hero_video}`} type="video/mp4" />
+        <source src={`${HomePageData?.acf?.cta?.cta_video}`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -40,37 +43,37 @@ export default function HeroSection({HomePageData}) {
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center w-full px-4">
         <h1 className="text-white text-[24px] md:text-[46px] font-semibold md:mb-8 mb-4 text-center">
-          {HomePageData?.acf?.hero?.hero_heading}
+          {HomePageData?.acf?.cta?.cta_heading}
         </h1>
         <p className="text-white text-[15px] md:mb-8 font-[400] mb-4 text-center">
-          {HomePageData?.acf?.hero?.hero_description}
+          {HomePageData?.acf?.cta?.cta_description}
         </p>
         {/* Desktop Form */}
         <form
-          className="bg-white rounded-full shadow flex w-full max-w-[44rem] p-1 gap-1 hidden md:flex"
+          className="bg-white rounded-full shadow flex w-full max-w-[30rem] p-1 gap-1 hidden md:flex"
           onSubmit={handleContactClick}
         >
           <input
-            type="text"
-            placeholder="What?"
+            type="number"
+            placeholder="Contact Number"
             className="px-5 py-3 rounded-full flex-1 outline-none placeholder:text-[#001568] placeholder:font-semibold placeholder:text-[13px] "
             value={what}
             onChange={e => setWhat(e.target.value)}
             required
           />
-          <input
+          {/* <input
             type="text"
             placeholder="Where"
             className="px-5 py-3 rounded-full flex-1 outline-none placeholder:text-[#001568] placeholder:font-semibold placeholder:text-[13px]"
             value={where}
             onChange={e => setWhere(e.target.value)}
             required
-          />
+          /> */}
           <button
             type="submit"
             className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
           >
-            {HomePageData?.acf?.hero?.hero_button}
+            {HomePageData?.acf?.cta?.cta_button}
           </button>
         </form>
 

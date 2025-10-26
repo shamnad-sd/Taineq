@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from './UI/Footer';
 import { ApiUrl } from '@/utils/urls';
+import Footer from './UI/Footer';
 
 const FooterMain = async () => {
 
@@ -70,6 +70,7 @@ const FooterMain = async () => {
         ProductsData={ProductsData}
         SocialMediaData={SocialMediaData}
       /> */}
+      <Footer/>
     </div>
   )
 }

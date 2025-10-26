@@ -168,3 +168,63 @@
 // }
 
 // export default Footer
+"use client"
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="bg-white border-t border-gray-100 py-[100px] px-[50px] md:px-[150px]">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12">
+        {/* Left: Logo & Address */}
+        <div className="flex flex-col gap-6 lg:gap-8 lg:w-1/3">
+          {/* Replace src with your logo path */}
+          <img src="/TAINEQ final logo 1.png" alt="Taineq logo" className="h-150px w-[150px] mb-2" />
+          <div className="text-[#19305B] text-base font-medium leading-snug">
+            Taineq Transport and Equipment Rental LLC <br />
+            PO Box: 8698, Office 60, Unit 11, Al Hail Holding, Musaffah, Abu Dhabi, UAE
+          </div>
+          <div className="text-[#19305B] text-base">
+            (971) 527-264909 <br />
+            rafeeq@taineq.com
+          </div>
+        </div>
+
+        {/* Center: Navigation */}
+        <div className="flex flex-col gap-2 lg:gap-5 text-[#58627A] text-base font-medium lg:w-1/5">
+          <Link href="/">Home</Link>
+          <Link href="/about">About us</Link>
+          <Link href="/rentals">Rentals</Link>
+          <Link href="/contact">Contact us</Link>
+        </div>
+
+        {/* Right: Categories */}
+        <div className="flex flex-col gap-2 lg:gap-5 text-[#58627A] text-base font-medium lg:w-1/4">
+          <Link href="/earth-moving-equipment">Earth Moving Equipment</Link>
+          <Link href="/lifting-equipment">Lifting Equipment</Link>
+          <Link href="/transport-services">Transport Services</Link>
+          <Link href="/construction-equipment">Construction Equipment</Link>
+        </div>
+      </div>
+
+      {/* Bottom: Copyright, Privacy, Terms */}
+      <div className="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-gray-100 mt-12 pt-5 max-w-7xl mx-auto text-[#58627A] text-base">
+        <div>©2025 Taineq</div>
+        <div className="flex gap-5">
+          <Link href="/privacy-policy">Privacy policy</Link>
+          <Link href="/terms-conditions">Terms and conditions</Link>
+        </div>
+      </div>
+
+      {/* Scroll-to-top button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed right-12 bottom-14 md:bottom-16 z-40 w-16 h-16 rounded-full bg-[#0065EC] flex items-center justify-center shadow-lg transition hover:bg-blue-700"
+        aria-label="Back to top"
+      >
+        <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+          <path d="M14 22V6M6 14l8-8 8 8" />
+        </svg>
+      </button>
+    </footer>
+  );
+}

@@ -22,3 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 .Secondary-color{
   color : #0065EC;
 }
+.paragraph-color{
+  color : #334486;
+  line-height : 30px
+}
