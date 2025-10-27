@@ -14,7 +14,7 @@ export default function HeroSection({HomePageData}) {
   }
 
   return (
-    <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[55vh]  md:h-[60vh] lg:[70vh] xl:[90vh] w-full flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
