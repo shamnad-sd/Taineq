@@ -25,9 +25,6 @@ const HeaderMain = async () => {
             <Header
                 HomePageData={HomePageData}
                 HeaderData={HeaderData}
-                // SignageData={SignageData}
-                // ItsData={ItsData}
-                // ProductsData={ProductsData}
             />
         </div>
     )

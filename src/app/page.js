@@ -3,6 +3,7 @@ import HomePage from "./Components/HomePage";
 import { generateMetadata as generateMetadataFromLib } from "@/lib/generateMetadata";
 
 const Home = async () => {
+  
   const HomeData = await fetch(`${ApiUrl}/wp-json/wp/v2/pages/658`, {
     next: { revalidate: 60 },
   });

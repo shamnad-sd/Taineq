@@ -54,11 +54,6 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
     return []
   }
 
-//   useEffect(() => {
-//   if (headerRef.current) {
-//     setHeaderHeight(headerRef.current.offsetHeight)
-//   }
-// }, [headerRef.current])
 
 
   // Enhanced nav items with sub-menus from API
@@ -150,7 +145,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
       {/* Sticky header */}
       <header
         ref={headerRef}
-        className={`bg-white border-b border-gray-200 px-7 xl:px-20 md:px-12 md:py-8 py-7 top-0 left-0 w-full z-50 transition-transform duration-300
+        className={`bg-white border-b border-gray-200 px-7 xl:px-20 md:px-12  py-7 top-0 left-0 w-full z-50 transition-transform duration-300
           ${showHeader ? "translate-y-0" : "-translate-y-full"}
           fixed`}
         style={{ willChange: "transform" }}

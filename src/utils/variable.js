@@ -18,5 +18,5 @@ export const siteFromEmail = process.env.NEXT_PUBLIC_SITE_FROM_EMAIL;
 
 export const siteName = "Taineq";
 export const siteLogo = `${ApiUrl}/wp-content/uploads/2025/10/TAINEQ-final-logo-1.png`
-export const copyright = `© ${new Date().getFullYear()} All Rights Reserved.`;
+export const copyright = `© ${new Date().getFullYear()} Taineq.`;
 
