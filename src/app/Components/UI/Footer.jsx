@@ -346,7 +346,7 @@ export default function Footer({
         {/* Scroll-to-top button */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed right-12 bottom-14 md:bottom-16 z-40 w-16 h-16 rounded-full bg-[#0065EC] flex items-center justify-center shadow-lg transition hover:bg-blue-700"
+          className="fixed cursor-pointer right-12 bottom-14 md:bottom-16 z-40 w-16 h-16 rounded-full bg-[#0065EC] flex items-center justify-center shadow-lg transition hover:bg-blue-700"
           aria-label="Back to top"
         >
           <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">

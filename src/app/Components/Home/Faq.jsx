@@ -9,7 +9,7 @@ export default function Faq({
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="bg-[#F7F9FB] min-h-screen flex flex-col md:items-center py-[30px] md:pt-[70px] md:pb-[100px] px-[20px] md:px-[50px]">
+    <section className="bg-[#F7F9FB] flex flex-col md:items-center py-[30px] md:pt-[70px] md:pb-[100px] px-[20px] md:px-[50px]">
       <div className="md:text-center mb-5   md:mb-12">
       <h2 className="Primary-color text-[24px] md:text-[34px] font-semibold ">
         {HomePageData?.acf?.faq?.faq_heading}

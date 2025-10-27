@@ -14,7 +14,7 @@ export default function Cta({HomePageData}) {
   }
 
   return (
-    <section className="relative h-[60vh]  md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative py-[80px] md:py-[150px] px-[20px] md:px-[50px] w-full flex items-center justify-center overflow-hidden">
       <div>
         
       </div>
