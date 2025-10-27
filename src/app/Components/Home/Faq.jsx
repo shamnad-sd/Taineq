@@ -9,15 +9,17 @@ export default function Faq({
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="bg-[#F7F9FB] min-h-screen flex flex-col items-center py-[30px] md:pt-[70px] md:pb-[100px] px-[20px] md:px-[50px]">
-      <h2 className="Primary-color text-[24px] md:text-[34px] font-semibold md:text-center  mb-12">
+    <section className="bg-[#F7F9FB] min-h-screen flex flex-col md:items-center py-[30px] md:pt-[70px] md:pb-[100px] px-[20px] md:px-[50px]">
+      <div className="md:text-center mb-5   md:mb-12">
+      <h2 className="Primary-color text-[24px] md:text-[34px] font-semibold ">
         {HomePageData?.acf?.faq?.faq_heading}
       </h2>
+      </div>
       <div className="w-full max-w-3xl mx-auto bg-transparent">
         {FaqData.map((item, idx) => (
           <div key={idx}>
             <button
-              className="w-full flex items-center justify-between py-6 px-2 md:px-6 bg-transparent border-b border-gray-200 focus:outline-none"
+              className="w-full flex items-center justify-between py-6 md:px-6 bg-transparent border-b border-gray-200 focus:outline-none"
               onClick={() => setOpen(open === idx ? null : idx)}
             >
               <span className="Primary-color font-semibold text-lg text-left max-w-[15rem] md:max-w-full">

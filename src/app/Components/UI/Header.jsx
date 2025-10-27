@@ -170,61 +170,51 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
           <nav className="hidden xl:flex items-end gap-2 flex-1 justify-end font-semibold tracking-wide">
             {navItems &&
               navItems.map((item, idx) =>
-                 (
-                  <div
-                    key={item.id}
-                    className="relative group"
-                    onMouseEnter={() => handleMouseEnter(item.id)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Link
-                      href={item.url}
-                      className={`
+              (
+                <div
+                  key={item.id}
+                  className="relative group"
+                  onMouseEnter={() => handleMouseEnter(item.id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link
+                    href={item.url}
+                    className={`
                       px-2 py-2 flex items-center gap-1
                       ${pathname === item.url ? "text-[#0065EC]" : "text-[#001568]"}
                       hover:text-[#5eb95e]
                       transition
                     `}
-                      style={{ letterSpacing: "0.02em" }}
-                    >
-                      {item.title}
-                      {item.subMenus && item.subMenus.length > 0 && ""}
-                      {/* <FiChevronDown className="text-sm ml-1" /> */}
-                    </Link>
+                    style={{ letterSpacing: "0.02em" }}
+                  >
+                    {item.title}
+                    {item.subMenus && item.subMenus.length > 0 && ""}
+                    {/* <FiChevronDown className="text-sm ml-1" /> */}
+                  </Link>
 
-                    {/* Desktop Dropdown */}
-                    {item.subMenus && item.subMenus.length > 0 && hoveredMenu === item.id && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-100  z-50">
-                        <div className="">
-                          {item.subMenus.map((subItem) => (
-                            <Link
-                              key={subItem.id}
-                              href={subItem.url}
-                              className="block px-4 py-3 text-sm text-[#666666] text-[14px] border-b-2 border-gray-100 last:border-0 hover:bg-gray-50 hover:text-[#5eb95e] transition-colors"
-                              onClick={() => setHoveredMenu(null)} // Add this line to close dropdown on click
-                            >
-                              {subItem.title}
-                            </Link>
-                          ))}
-                        </div>
+                  {/* Desktop Dropdown */}
+                  {item.subMenus && item.subMenus.length > 0 && hoveredMenu === item.id && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-100  z-50">
+                      <div className="">
+                        {item.subMenus.map((subItem) => (
+                          <Link
+                            key={subItem.id}
+                            href={subItem.url}
+                            className="block px-4 py-3 text-sm text-[#666666] text-[14px] border-b-2 border-gray-100 last:border-0 hover:bg-gray-50 hover:text-[#5eb95e] transition-colors"
+                            onClick={() => setHoveredMenu(null)} // Add this line to close dropdown on click
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
                       </div>
-                    )}
-                  </div>
-                ),
+                    </div>
+                  )}
+                </div>
+              ),
               )}
           </nav>
 
-          {/* Contact Button */}
-          {/* {navItems && navItems.length > 0 && (
-            <Link
-              key={navItems[navItems.length - 1].id}
-              href={navItems[navItems.length - 1].url}
-              className="hidden xl:block bg-[#5eb95e] hover:bg-[#145D3E] text-white font-semibold uppercase px-9 py-4 rounded-none transition-colors duration-300"
-            >
-              {navItems[navItems.length - 1].title}
-            </Link>
-          )} */}
-
+         
           {/* Mobile Menu Button */}
           <button
             className="xl:hidden cursor-pointer text-[#1f1fce] z-[100]"
@@ -234,26 +224,10 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
             {isOpen ? (
               ""
             ) : (
-              <svg width="40" height="13" viewBox="0 0 40 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M0.399414 1.40869H39.9999M0.399414 11.5917H39.9999"
-                  stroke="url(#paint0_linear_455_4000)"
-                  strokeWidth="2.26288"
-                />
-                <defs>
-                  <linearGradient
-                    id="paint0_linear_455_4000"
-                    x1="2.15943"
-                    y1="-0.979968"
-                    x2="24.2173"
-                    y2="11.5563"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#145D3E" />
-                    <stop offset="1" stopColor="#68A942" />
-                  </linearGradient>
-                </defs>
+              <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.5 1.5H26.5M1.5 11.5H26.5" stroke="#0065EC" stroke-width="3" stroke-linecap="round" stroke-linejoin="bevel" />
               </svg>
+
             )}
           </button>
         </div>
@@ -279,7 +253,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
       >
         {/* Back Arrow */}
         <div className="flex items-center px-6 pt-6 pb-2 ">
-          <button className="text-[#5eb95e] text-2xl cursor-pointer" onClick={() => setIsOpen(false)} aria-label="Close menu">
+          <button className="text-[#0065EC] text-2xl cursor-pointer" onClick={() => setIsOpen(false)} aria-label="Close menu">
             <FiArrowLeft />
           </button>
           {/* <span className="ml-4 text-lg font-semibold text-gray-800">Menu</span> */}

@@ -22,9 +22,9 @@ export default function HomeEquipments({
           </button>
         </Link>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
         {ProductItemsData.map(product => (
-          <div key={product.id} className="bg-white rounded-3xl border border-gray-200 p-6 pt-18 flex flex-col items-center">
+          <div key={product.id} className="bg-white rounded-3xl border border-gray-200 p-6  sm:pt-18 flex flex-col items-center">
             <Images
               imageurl={product?.featured_image_details?.src}
               alt={product?.featured_image_details?.alt}
