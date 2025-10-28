@@ -100,7 +100,7 @@ export async function ContactEmailTemplate(
 
           <!-- Header -->
           <tr>
-            <td align="center" style="background-color: #63AF51; padding: 40px 20px;">
+            <td align="center" style="background-color: #0065EC; padding: 40px 20px;">
               <h1 style="color: #fff; font-size: 24px; font-weight: 600; margin: 0;">New Contact Message</h1>
               <p style="color: #e8f5ee; font-size: 14px; margin-top: 8px;">Someone reached out from your website</p>
             </td>
@@ -109,12 +109,12 @@ export async function ContactEmailTemplate(
           <!-- Content -->
           <tr>
             <td style="padding: 30px 40px;">
-              <h2 style="font-size: 20px; font-weight: 600; color: #63AF51; margin: 0 0 10px;">Hello Admin,</h2>
+              <h2 style="font-size: 20px; font-weight: 600; color: #001568; margin: 0 0 10px;">Hello Admin,</h2>
               <p style="font-size: 15px; color: #555;">You've received a new inquiry. Here are the contact details:</p>
 
               <!-- User Profile -->
               <div style="text-align: center; margin: 30px 0;">
-                <div style="width: 80px; height: 80px; background-color: #145D3E; color: #fff; font-size: 32px; font-weight: bold; line-height: 80px; border-radius: 50%; margin: auto;">
+                <div style="width: 80px; height: 80px; background-color: #001568; color: #fff; font-size: 32px; font-weight: bold; line-height: 80px; border-radius: 50%; margin: auto;">
                   ${name.charAt(0).toUpperCase()}
                 </div>
                 <h3 style="margin: 10px 0 5px; font-size: 20px; color: #333;">${name}</h3>
@@ -124,36 +124,36 @@ export async function ContactEmailTemplate(
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 25px;">
                 <tr>
                   <td style="width: 50%; padding-right: 10px;">
-                    <div style="background-color: #f2f9f5; padding: 15px; border-radius: 10px;">
+                    <div style="background-color: #eaf3ff; padding: 15px; border-radius: 10px;">
                       <strong style="font-size: 13px; color: #888;">Email</strong>
                       <p style="margin: 5px 0 0; font-size: 14px;">
-                        <a href="mailto:${email}" style="color: #63AF51; text-decoration: none;">${email}</a>
+                        <a href="mailto:${email}" style="color: #334486; text-decoration: none;">${email}</a>
                       </p>
                     </div>
                   </td>
                   <td style="width: 50%; padding-left: 10px;">
-                    <div style="background-color: #fdf8e4; padding: 15px; border-radius: 10px;">
+                    <div style="background-color: #eaf3ff; padding: 15px; border-radius: 10px;">
                       <strong style="font-size: 13px; color: #888;">Phone</strong>
                       <p style="margin: 5px 0 0; font-size: 14px;">
-                        <a href="tel:${phone}" style="color: #63AF51; text-decoration: none;">${phone}</a>
+                        <a href="tel:${phone}" style="color: #334486; text-decoration: none;">${phone}</a>
                       </p>
                     </div>
                   </td>
                 </tr>
               </table>
 
-              <div style="background-color: #fdf8e4; padding: 15px; border-radius: 10px; padding-bottom:20px; margin-bottom:25px;">
+              <div style="background-color: #eaf3ff; padding: 15px; border-radius: 10px; padding-bottom:20px; margin-bottom:25px;">
                       <strong style="font-size: 13px; color: #888;">Location</strong>
                       <p style="margin: 5px 0 0; font-size: 14px;">
-                        <a href="" style="color: #63AF51; text-decoration: none;">${location}</a>
+                        <a href="" style="color: #334486; text-decoration: none;">${location}</a>
                       </p>
                     </div>
 
 
               <!-- Message Box -->
-              <div style="background-color: #fcfcfc; border-left: 4px solid #145D3E; border-radius: 8px; padding: 20px;">
-                <strong style="display: block; margin-bottom: 10px; color: #145D3E;">Message</strong>
-                <p style="margin: 0; font-size: 15px; color: #444; line-height: 1.7;">
+              <div style="background-color: #eaf3ff; border-left: 4px solid #001568; border-radius: 8px; padding: 20px;">
+                <strong style="display: block; margin-bottom: 10px; color: #888;">Message</strong>
+                <p style="margin: 0; font-size: 15px; color: #334486; line-height: 1.7;">
                   ${message}
                 </p>
               </div>
@@ -163,7 +163,7 @@ export async function ContactEmailTemplate(
           <!-- Footer -->
           <tr>
             <td align="center" style="background-color: #f2f2f2; padding: 20px;">
-              <p style="font-size: 13px; color: #888; margin: 0;">&copy; ${new Date().getFullYear()} EEIS All rights reserved.</p>
+              <p style="font-size: 13px; color: #888; margin: 0;">&copy; ${new Date().getFullYear()} ${siteName} All rights reserved.</p>
             </td>
           </tr>
 
@@ -201,7 +201,7 @@ export async function ThankYouEmailTemplate(name) {
 
           <!-- Header -->
           <tr>
-            <td align="center" style="background-color: #63AF51; padding: 40px 20px;">
+            <td align="center" style="background-color: #0065EC; padding: 40px 20px;">
               <h1 style="color: #fff; font-size: 24px; font-weight: 600; margin: 0;">Thank You!</h1>
               <p style="color: #e8f5ee; font-size: 14px; margin-top: 8px;">We've received your message</p>
             </td>
@@ -211,14 +211,14 @@ export async function ThankYouEmailTemplate(name) {
           <tr>
             <td style="padding: 40px;">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="width: 80px; height: 80px; background-color: #145D3E; color: #fff; font-size: 32px; font-weight: bold; line-height: 80px; border-radius: 50%; margin: auto;">
+                <div style="width: 80px; height: 80px; background-color: #001568; color: #fff; font-size: 32px; font-weight: bold; line-height: 80px; border-radius: 50%; margin: auto;">
                   ${name.charAt(0).toUpperCase()}
                 </div>
                 <h2 style="margin: 15px 0 0; font-size: 20px; color: #333;">Hello ${name}!</h2>
               </div>
 
               <div style="text-align: center; margin-bottom: 30px;">
-                <h3 style="font-size: 18px; font-weight: 600; color: #63AF51; margin: 0 0 15px;">Thanks for contacting us!</h3>
+                <h3 style="font-size: 18px; font-weight: 600; color: #0065EC; margin: 0 0 15px;">Thanks for contacting us!</h3>
                 <p style="font-size: 16px; color: #555; line-height: 1.6; margin: 0;">
                   We've received your message and will get back to you as soon as possible. 
                   We appreciate you taking the time to reach out to us.

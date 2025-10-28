@@ -55,12 +55,12 @@ export default function RootLayout({ children }) {
               // Success toast
               success: {
                 style: {
-                  background: "#63af51",
+                  background: "#0065EC",
                   color: "#fff",
                 },
                 iconTheme: {
                   primary: "#fff",
-                  secondary: "#4FA5BC",
+                  secondary: "#0065EC",
                 },
               },
               // Error toast
