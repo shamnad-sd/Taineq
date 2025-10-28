@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Images from "../UI/Images";
+import MainHeadings from "../UI/MainHeadings";
 
 export default function HomeAbout({ HomePageData }) {
     return (
@@ -18,25 +19,15 @@ export default function HomeAbout({ HomePageData }) {
                 </div>
 
                 <div className="lg:col-span-7 pt-14">
-                    <h3 className="uppercase tracking-wide Secondary-color font-semibold text-base  md:text-[18px] mb-3 inline-flex items-center gap-3">
-                        <svg width="40" height="3" viewBox="0 0 40 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="40" height="3" fill="#0065EC" />
-                        </svg>
-                        {HomePageData?.acf?.about?.about_heading}
-                    </h3>
+                    <MainHeadings
+                        Heading={HomePageData?.acf?.about?.about_heading}
+                        Subheading={HomePageData?.acf?.about?.about__subheading}
+                        Description={HomePageData?.acf?.about?.about_description}
+                    />
 
-                    <h2 className="text-[24px] md:text-[44px] lg:text-[35px] xl:text-[44px] font-semibold Primary-color mb-5 leading-tight xl:max-w-[40rem]">
-                        {HomePageData?.acf?.about?.about__subheading}
-                    </h2>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: HomePageData?.acf?.about?.about_description
-                        }}
-                        className="paragraph-color text-[17px] mb-8 xl:max-w-[41rem] " />
+                    <Link
 
-                    <Link 
-                    
-                    href={'#'}>
+                        href={'#'}>
                         <button className="bg-[#0065EC] md:hidden block text-white w-full px-8 py-3 cursor-pointer rounded-full text-base font-semibold transition">
                             {HomePageData?.acf?.about?.about_button}
                         </button>

@@ -1,60 +1,90 @@
 "use client"
 import { useEffect } from 'react'
 import AnimatedElement from './AnimatedElement';
+import Images from './UI/Images';
+import MainHeadings from './UI/MainHeadings';
 
 const AboutDetails = ({ AboutData }) => {
-    useEffect(() => {
-        const images = document.querySelectorAll(".wp-about img");
 
-        if (images.length >= 2) {
-            const svg = `
-        <svg
-          class="w-18 h-18  absolute animate-wiggleLoop"
-          viewBox="0 0 83 98"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M83 49L0 98L0 0L83 49Z" fill="#63AF51" />
-        </svg>
-      `;
-
-            // First image – Top Right
-            const wrapper1 = document.createElement("div");
-            wrapper1.style.position = "relative";
-            images[0].parentNode.insertBefore(wrapper1, images[0]);
-            wrapper1.appendChild(images[0]);
-            wrapper1.insertAdjacentHTML("beforeend", svg);
-            const svg1 = wrapper1.querySelector("svg");
-            svg1.classList.add("svg-top-right");
-            svg1.classList.add("svg-top-right2");
-            svg1.classList.add("svg-top-right3");
-            svg1.classList.add("svg-top-right4");
-            wrapper1.querySelector("svg").style.top = "-36px";
-            wrapper1.querySelector("svg").style.right = "40px";
-
-            // Second image – Bottom Right
-            const wrapper2 = document.createElement("div");
-            wrapper2.style.position = "relative";
-            images[1].parentNode.insertBefore(wrapper2, images[1]);
-            wrapper2.appendChild(images[1]);
-            wrapper2.insertAdjacentHTML("beforeend", svg);
-            const svg2 = wrapper2.querySelector("svg");
-            svg2.classList.add("svg-bottom-right");
-            wrapper2.querySelector("svg").style.bottom = "-36px";
-            wrapper2.querySelector("svg").style.left = "40px";
-        }
-    }, []);
     return (
-        <div className='pt-4 xl:pt-5 wp-about wp-about-mobile '>
-            <AnimatedElement animation='fade-up'
-                delay={800}
-                dangerouslySetInnerHTML={{
-                    __html: AboutData?.content?.rendered
-                }}
-            />
+        <section>
+            {/* About Hero */}
+            <div className='rounded-2xl overflow-hidden md:h-[400px] flex items-center mt-7'>
+                <Images
+                    imageurl={AboutData?.acf?.about_hero?.about_image?.url}
+                    alt={AboutData?.acf?.about_hero?.about_image?.alt}
+                    width={1400}
+                    height={700}
+                    quality={100}
+                    placeholder={true}
+                    classes="w-full h-full object-cover"
+                />
+            </div>
+            <div className='flex justify-center items-center mt-10 md:mt-16 pb-3 md:pb-8 xl:pb-16 '>
+                <MainHeadings
+                    Heading={AboutData?.acf?.about_hero?.about_heading}
+                    Subheading={AboutData?.acf?.about_hero?.about_subheading}
+                    Description={AboutData?.acf?.about_hero?.about_description}
+                    maxWidth='50rem'
+                />
+            </div>
+
+            {/*  Vision */}
+            <div className='pb-3 md:pb-10'>
+                <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-20 items-center">
+                    <div className="md:col-span-6">
+                        <Images
+                            imageurl={AboutData?.acf?.vision_and_mission?.vision_image?.url}
+                            alt={AboutData?.acf?.vision_and_mission?.vision_image?.alt}
+                            width={1400}
+                            height={700}
+                            quality={100}
+                            placeholder={true}
+                            classes="rounded-3xl w-full h-full xl:h-[663px]  object-cover"
+                        />
+                    </div>
+
+                    <div className="lg:col-span-6 pt-9 md:pt-14 xl:pr-[8rem]">
+                        <MainHeadings
+                            Heading={AboutData?.acf?.vision_and_mission?.vision_heading}
+                            Subheading={AboutData?.acf?.vision_and_mission?.vision_subheading}
+                            Description={AboutData?.acf?.vision_and_mission?.vision_description}
+                        // maxWidth='30rem'
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/*  Mission */}
+            <div className=''>
+                <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-20 items-center">
+                    <div className="md:col-span-6 xl:pl-[4rem] order-2 pt-9 md:pt-14 xl:pt-0 lg:order-1">
+                        <MainHeadings
+                            Heading={AboutData?.acf?.vision_and_mission?.mission_heading}
+                            Subheading={AboutData?.acf?.vision_and_mission?.mission_subheading}
+                            Description={AboutData?.acf?.vision_and_mission?.mission_description}
+                        />
+                    </div>
+
+                    <div className="lg:col-span-6 xl:pt-14 order-1 lg:order-2">
+                        <Images
+                            imageurl={AboutData?.acf?.vision_and_mission?.mission_image?.url}
+                            alt={AboutData?.acf?.vision_and_mission?.mission_image?.alt}
+                            width={1400}
+                            height={700}
+                            quality={100}
+                            placeholder={true}
+                            classes="rounded-3xl w-full h-full xl:h-[663px]  object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Core Values */}
 
 
-        </div>
+
+        </section>
     )
 }
 

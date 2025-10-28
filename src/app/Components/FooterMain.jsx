@@ -1,6 +1,7 @@
 import React from 'react'
 import { ApiUrl } from '@/utils/urls';
 import Footer from './UI/Footer';
+import Cta from './UI/Cta';
 
 const FooterMain = async () => {
 
@@ -32,6 +33,7 @@ const FooterMain = async () => {
 
   return (
     <div>
+      {/* <Cta  HomePageData={HomePageData} /> */}
       <Footer
         EquipmentsData={EquipmentsData}
         AddressData={AddressData}

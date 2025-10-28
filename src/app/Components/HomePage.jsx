@@ -5,7 +5,8 @@ import EquipmentsSlider from './Home/EquipmentsSlider'
 import FeaturesGridSection from './Home/FeaturesGridSection'
 import HomeAbout from './Home/HomeAbout'
 import Faq from './Home/Faq'
-import Cta from './Home/Cta'
+import Cta from './UI/Cta'
+
 const HomePage = ({
   HomePageData,
   ProductItemsData,

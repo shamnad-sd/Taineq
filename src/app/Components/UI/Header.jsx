@@ -145,7 +145,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
       {/* Sticky header */}
       <header
         ref={headerRef}
-        className={`bg-white border-b border-gray-200 px-7 xl:px-20 md:px-12  py-7 top-0 left-0 w-full z-50 transition-transform duration-300
+        className={`bg-white border-b border-gray-200 px-7  md:px-[50px]  py-7 top-0 left-0 w-full z-50 transition-transform duration-300
           ${showHeader ? "translate-y-0" : "-translate-y-full"}
           fixed`}
         style={{ willChange: "transform" }}
@@ -225,7 +225,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
               ""
             ) : (
               <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.5 1.5H26.5M1.5 11.5H26.5" stroke="#0065EC" stroke-width="3" stroke-linecap="round" stroke-linejoin="bevel" />
+                <path d="M1.5 1.5H26.5M1.5 11.5H26.5" stroke="#0065EC" strokeWidth="3" stroke-linecap="round" stroke-linejoin="bevel" />
               </svg>
 
             )}
