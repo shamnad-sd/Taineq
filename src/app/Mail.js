@@ -71,7 +71,13 @@ export async function sendMail({ sendTo, subject, message, name }) {
   return info;
 }
 
-export async function ContactEmailTemplate(name, email, phone, message) {
+export async function ContactEmailTemplate(
+  name,
+  email,
+  phone,
+  message,
+  location
+) {
   return `
   <!-- ✅ CHANGES: replaced #35935A with #63AF51, and #D1B33B with #145D3E -->
 
@@ -135,6 +141,14 @@ export async function ContactEmailTemplate(name, email, phone, message) {
                   </td>
                 </tr>
               </table>
+
+              <div style="background-color: #fdf8e4; padding: 15px; border-radius: 10px; padding-bottom:20px; margin-bottom:25px;">
+                      <strong style="font-size: 13px; color: #888;">Location</strong>
+                      <p style="margin: 5px 0 0; font-size: 14px;">
+                        <a href="" style="color: #63AF51; text-decoration: none;">${location}</a>
+                      </p>
+                    </div>
+
 
               <!-- Message Box -->
               <div style="background-color: #fcfcfc; border-left: 4px solid #145D3E; border-radius: 8px; padding: 20px;">

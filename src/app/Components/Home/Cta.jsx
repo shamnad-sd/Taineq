@@ -3,14 +3,19 @@ import { useState } from "react";
 import ContactModal from "../UI/ContactModal";
 
 export default function Cta({HomePageData}) {
-  const [what, setWhat] = useState("");
-  const [where, setWhere] = useState("");
+
+  const [contact, setContact] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   
   function handleContactClick(e) {
     e.preventDefault();
     setShowModal(true);
+  }
+
+  function handleCloseModalAndReset() {
+    setShowModal(false);
+    setContact("");
   }
 
   return (
@@ -57,18 +62,10 @@ export default function Cta({HomePageData}) {
             type="number"
             placeholder="Contact Number"
             className="px-5 py-3 rounded-full flex-1 outline-none placeholder:text-[#001568] placeholder:font-semibold placeholder:text-[13px] "
-            value={what}
-            onChange={e => setWhat(e.target.value)}
+            value={contact}
+            onChange={e => setContact(e.target.value)}
             required
           />
-          {/* <input
-            type="text"
-            placeholder="Where"
-            className="px-5 py-3 rounded-full flex-1 outline-none placeholder:text-[#001568] placeholder:font-semibold placeholder:text-[13px]"
-            value={where}
-            onChange={e => setWhere(e.target.value)}
-            required
-          /> */}
           <button
             type="submit"
             className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
@@ -89,9 +86,8 @@ export default function Cta({HomePageData}) {
       {/* Popup Modal */}
       {showModal && (
         <ContactModal
-          what={what}
-          where={where}
-          onClose={() => setShowModal(false)}
+          contact={contact}
+          onClose={handleCloseModalAndReset}
         />
       )}
     </section>

@@ -13,6 +13,12 @@ export default function HeroSection({HomePageData}) {
     setShowModal(true);
   }
 
+  function handleCloseModalAndReset() {
+    setShowModal(false);
+    setWhat("");
+    setWhere("");
+  }
+
   return (
     <section className="relative h-[60vh] xl:h-[90vh] w-full flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -88,7 +94,7 @@ export default function HeroSection({HomePageData}) {
         <ContactModal
           what={what}
           where={where}
-          onClose={() => setShowModal(false)}
+          onClose={handleCloseModalAndReset}
         />
       )}
     </section>

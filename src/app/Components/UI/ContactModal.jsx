@@ -1,77 +1,119 @@
+"use client";
 import { useState } from "react";
+import { ContactEmailTemplate, sendMail, ThankYouEmailTemplate } from '@/app/Mail';
+import { siteEmail, siteName } from '@/utils/variable';
+import toast from 'react-hot-toast';
 
-function ContactModal({ what, where, onClose }) {
-  const [phone, setPhone] = useState("");
-  const [subject, setSubject] = useState("");
+function ContactModal({ what, where, contact, onClose }) {
+  
+  const [phone, setPhone] = useState(contact || "");
   const [message, setMessage] = useState("");
+  const [name, setName] = useState(what || "");
+  const [email, setEmail] = useState("");
+  const [location, setLocation] = useState(where || "");
+  const [isLoading, setIsLoading] = useState(false);
 
   // If user opened from "Let's Talk" mobile, allow inputs empty
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const defaultWhat = isMobile ? "" : what;
   const defaultWhere = isMobile ? "" : where;
+  const defaultContact = isMobile ? "" : contact;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    alert("Form submitted!");
-    onClose();
+    setIsLoading(true);
+
+    try {
+      // Send to Admin
+      await sendMail({
+        sendTo: `${siteEmail}`,
+        name: "Admin",
+        subject: `Contact - ${siteName}`,
+        message: await ContactEmailTemplate(name, email, phone, message, location), // Adjust template params as needed
+      });
+
+      // Send Thank You to User
+      await sendMail({
+        sendTo: email,
+        name: name,
+        subject: `Thank you for contacting ${siteName}`,
+        message: await ThankYouEmailTemplate(name),
+      });
+
+      setIsLoading(false);
+      toast.success("Message sent successfully!");
+      // On success, reset all fields
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+      setLocation("");
+      onClose(); // Close modal after success or you can comment this if you want user to keep it open
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("Failed to send message. Try again!");
+      console.error("Error sending emails:", error);
+    }
   }
 
   return (
-    <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-100 flex items-center justify-center backdrop-blur-sm px-5">
       <div className="bg-white rounded-xl p-8 shadow-lg w-full max-w-md relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-4 text-gray-700 text-xl"
+          className="absolute cursor-pointer top-3 right-4 text-[#0065EC] text-2xl"
         >
           ×
         </button>
-        <h2 className="text-2xl font-bold mb-4">Contact Request</h2>
+        <h2 className="text-2xl font-semibold mb-4">Contact Request</h2>
+        <p className="pb-4 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, blanditiis.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            value={defaultWhat || what}
-            onChange={e => setWhat(e.target.value)}
-            className="w-full px-4 py-2 rounded border bg-gray-100"
-            placeholder="What? (Type of equipment)"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            className="w-full px-4 py-2 rounded border border-[#0065EC]"
+            placeholder="Name"
+            required
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            className="w-full px-4 py-2 rounded border border-[#0065EC]"
+            placeholder="Email"
             required
           />
           <input
             type="text"
-            value={defaultWhere || where}
-            onChange={e => setWhere(e.target.value)}
-            className="w-full px-4 py-2 rounded border bg-gray-100"
+            value={location}
+            onChange={e => setLocation(e.target.value)}
+            className="w-full px-4 py-2 rounded border border-[#0065EC]"
             placeholder="Where (Location)"
             required
           />
           <input
             type="tel"
-            required
-            value={phone}
+            value={phone }
             onChange={e => setPhone(e.target.value)}
-            className="w-full px-4 py-2 rounded border"
+            className="w-full px-4 py-2 rounded border border-[#0065EC]"
             placeholder="Phone Number"
-          />
-          <input
-            type="text"
             required
-            value={subject}
-            onChange={e => setSubject(e.target.value)}
-            className="w-full px-4 py-2 rounded border"
-            placeholder="Subject"
           />
           <textarea
-            required
             value={message}
             onChange={e => setMessage(e.target.value)}
-            className="w-full px-4 py-2 rounded border"
+            className="w-full px-4 py-2 rounded border border-[#0065EC]"
             rows={3}
             placeholder="Message"
+            required
           />
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700"
+            disabled={isLoading}
+            className="border cursor-pointer border-[#0065EC] text-[#0065EC] w-full py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300"
           >
-            Submit
+            {isLoading ? "Sending..." : "Submit"}
           </button>
         </form>
       </div>
@@ -79,4 +121,4 @@ function ContactModal({ what, where, onClose }) {
   );
 }
 
-export default ContactModal
+export default ContactModal;
