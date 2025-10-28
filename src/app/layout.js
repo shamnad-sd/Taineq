@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
         <NextTopLoader
-          color="#63af51"
+          color="#0065EC"
           initialPosition={0.08}
           crawlSpeed={600}
           height={4}

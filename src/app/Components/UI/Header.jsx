@@ -182,7 +182,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
                     className={`
                       px-2 py-2 flex items-center gap-1
                       ${pathname === item.url ? "text-[#0065EC]" : "text-[#001568]"}
-                      hover:text-[#5eb95e]
+                      hover:text-[#0065EC]
                       transition
                     `}
                     style={{ letterSpacing: "0.02em" }}

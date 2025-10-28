@@ -34,7 +34,9 @@ export default function HomeAbout({ HomePageData }) {
                         }}
                         className="paragraph-color text-[17px] mb-8 xl:max-w-[41rem] " />
 
-                    <Link href={'#'}>
+                    <Link 
+                    
+                    href={'#'}>
                         <button className="bg-[#0065EC] md:hidden block text-white w-full px-8 py-3 cursor-pointer rounded-full text-base font-semibold transition">
                             {HomePageData?.acf?.about?.about_button}
                         </button>

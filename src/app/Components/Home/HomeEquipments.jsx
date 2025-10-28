@@ -16,10 +16,10 @@ export default function HomeEquipments({
         <h2 className="text-[24px] md:text-[34px] font-semibold Primary-color">
           {HomePageData?.acf?.equipment_rentals?.equipment_rentals_heading}
         </h2>
-        <Link href={'#'}>
-          <button className="cursor-pointer border border-[#0065EC] text-[#0065EC] px-8 py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300 hidden md:block">
-            {HomePageData?.acf?.equipment_rentals?.equipment_rentals_button}
-          </button>
+        <Link
+          className="cursor-pointer border border-[#0065EC] text-[#0065EC] px-8 py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300 hidden md:block"
+          href='/rental-services'>
+          {HomePageData?.acf?.equipment_rentals?.equipment_rentals_button}
         </Link>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
@@ -42,11 +42,12 @@ export default function HomeEquipments({
       </div>
       {/* Mobile "View All" */}
       <div className="mt-8 md:hidden flex justify-center">
-        <button className="border border-[#0065EC] text-[#0065EC] w-full py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300">
-          <Link href={'#'}>
+          <Link 
+          className="border border-[#0065EC] text-[#0065EC] w-full py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300"
+          href='/rental-services'>
             {HomePageData?.acf?.equipment_rentals?.equipment_rentals_button}
           </Link>
-        </button>
+          
       </div>
     </section>
   );

@@ -74,7 +74,7 @@ export default function HeroSection({HomePageData}) {
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
+            className="cursor-pointer px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition"
           >
             {HomePageData?.acf?.hero?.hero_button}
           </button>
