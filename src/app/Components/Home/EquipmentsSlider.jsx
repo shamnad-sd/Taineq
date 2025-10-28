@@ -19,7 +19,7 @@ export default function EquipmentsSlider({ HomeSliderData }) {
                     {HomeSliderData?.map((slide) => (
                         <SwiperSlide key={slide.id}>
                             <div
-                                className="relative rounded-2xl overflow-hidden h-[200px] md:h-[400px] flex items-center"
+                                className="relative rounded-2xl overflow-hidden h-[170px] md:h-[300px] lg:h-[400px] flex items-center"
                                 style={{
                                     background: `url(${slide?.featured_image_details?.src}) center center/cover no-repeat`
                                 }}
@@ -30,7 +30,7 @@ export default function EquipmentsSlider({ HomeSliderData }) {
                                             "linear-gradient(90deg, rgba(35,65,92,0.5) 0%, rgba(35,65,92,0.15) 55%, rgba(35,65,92,0) 100%)"
                                     }}
                                 ></div>
-                                <div className="relative z-20 px-6  lg:left-26">
+                                <div className="relative z-20 px-6 md:left-10  lg:left-26">
                                     <h3 className="text-white text-[24px] md:text-[44px] font-semibold max-w-xl">
                                         {slide?.title?.rendered}
                                     </h3>

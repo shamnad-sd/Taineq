@@ -25,7 +25,7 @@ export default function HomeAbout({ HomePageData }) {
                         {HomePageData?.acf?.about?.about_heading}
                     </h3>
 
-                    <h2 className="text-[24px] md:text-[44px] font-semibold Primary-color mb-5 leading-tight xl:max-w-[40rem]">
+                    <h2 className="text-[24px] md:text-[44px] lg:text-[35px] xl:text-[44px] font-semibold Primary-color mb-5 leading-tight xl:max-w-[40rem]">
                         {HomePageData?.acf?.about?.about__subheading}
                     </h2>
                     <div

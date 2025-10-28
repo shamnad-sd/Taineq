@@ -19,10 +19,10 @@ export default function Faq({
         {FaqData.map((item, idx) => (
           <div key={idx}>
             <button
-              className="w-full flex items-center justify-between py-6 md:px-6 bg-transparent border-b border-gray-200 focus:outline-none"
+               className={`w-full flex items-center justify-between py-6 md:px-6 bg-transparent ${idx === FaqData.length - 1 ? "" : "border-b border-gray-200"} focus:outline-none`}
               onClick={() => setOpen(open === idx ? null : idx)}
             >
-              <span className="Primary-color font-semibold text-lg text-left max-w-[15rem] md:max-w-full">
+              <span className="Primary-color font-semibold text-lg text-left max-w-[17rem] md:max-w-full">
                 {item?.title?.rendered}
               </span>
               <svg

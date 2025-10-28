@@ -45,10 +45,10 @@ export default function HeroSection({ HomePageData }) {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center w-full px-4">
-        <h1 className="text-white text-[24px] md:text-[46px] font-semibold md:mb-10 mb-4 text-center">
+        <h1 className="text-white text-[24px] md:text-[46px] font-semibold md:mb-5 mb-4 text-center">
           {HomePageData?.acf?.hero?.hero_heading}
         </h1>
-        <p className="text-white text-[15px] md:mb-8 font-[400] mb-4 text-center">
+        <p className="text-white text-[15px] md:mb-10 font-[400] mb-4 text-center">
           {HomePageData?.acf?.hero?.hero_description}
         </p>
         {/* Desktop Form */}

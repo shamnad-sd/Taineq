@@ -160,7 +160,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
                 width="280"
                 height="160"
                 quality={100}
-                classes={` min-w-[190px] max-w-[190px]`}
+                classes={` min-w-[160px] max-w-[160px]`}
                 placeholder={false}
               />
             </Link>
@@ -238,7 +238,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
         id="header-spacer"
         className="bg-white"
         style={{
-          paddingTop: headerHeight ? `${headerHeight}px` : "96px",
+          paddingTop: headerHeight ? `${headerHeight}px` : "86px",
           transition: "padding-top 0.3s ease",
         }}
       />
