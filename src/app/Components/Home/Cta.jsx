@@ -77,7 +77,7 @@ export default function Cta({HomePageData}) {
         {/* Mobile "Let's Talk" Button */}
         <button
           onClick={handleContactClick}
-          className="block md:hidden px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md mt-4"
+          className="block md:hidden px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold mt-4"
         >
           {HomePageData?.acf?.hero?.mobile_button}
         </button>

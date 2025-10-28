@@ -45,7 +45,7 @@ export default function HeroSection({ HomePageData }) {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center w-full px-4">
-        <h1 className="text-white text-[24px] md:text-[46px] font-semibold md:mb-8 mb-4 text-center">
+        <h1 className="text-white text-[24px] md:text-[46px] font-semibold md:mb-10 mb-4 text-center">
           {HomePageData?.acf?.hero?.hero_heading}
         </h1>
         <p className="text-white text-[15px] md:mb-8 font-[400] mb-4 text-center">
@@ -93,7 +93,7 @@ export default function HeroSection({ HomePageData }) {
         {/* Mobile "Let's Talk" Button */}
         <button
           onClick={handleContactClick}
-          className="block md:hidden px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold shadow-md mt-4"
+          className="block md:hidden px-8 py-3 bg-blue-600 text-white rounded-full text-lg font-semibold mt-4"
         >
           {HomePageData?.acf?.hero?.mobile_button}
         </button>

@@ -43,7 +43,7 @@ export default function HomeEquipments({
       {/* Mobile "View All" */}
       <div className="mt-8 md:hidden flex justify-center">
           <Link 
-          className="border border-[#0065EC] text-[#0065EC] w-full py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300"
+          className="border border-[#0065EC] text-center text-[#0065EC] w-full py-3 rounded-full font-semibold hover:bg-[#0065EC] hover:text-[#fff] transition duration-300"
           href='/rental-services'>
             {HomePageData?.acf?.equipment_rentals?.equipment_rentals_button}
           </Link>
