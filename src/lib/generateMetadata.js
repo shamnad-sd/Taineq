@@ -25,10 +25,10 @@ export function generateMetadata(data, nofollow, path) {
     : { index: true, follow: true };
 
   return {
-    title: seo?.title || 'EEIS',
+    title: seo?.title || 'Taineq',
     description: isYoastData
-      ? seo?.description || 'EEIS'
-      : seo?.metaDesc || 'EEIS',
+      ? seo?.description || 'Taineq'
+      : seo?.metaDesc || 'Taineq',
     metadataBase: new URL(frontendUrl),
       icons: {
       icon: [
@@ -65,10 +65,10 @@ export function generateMetadata(data, nofollow, path) {
     },
     robots: robotsDirective,
     openGraph: {
-      title: seo?.og_title || seo?.title || 'EEIS',
-      description: seo?.og_description || seo?.metaDesc || 'EEIS',
+      title: seo?.og_title || seo?.title || 'Taineq',
+      description: seo?.og_description || seo?.metaDesc || 'Taineq',
       url: canonicalUrl ||  seo?.og_url ,
-      siteName: seo?.og_site_name || 'EEIS',
+      siteName: seo?.og_site_name || 'Taineq',
       locale: seo?.og_locale || 'en_US',
       type: seo?.og_type || 'website',
       modifiedTime: seo?.article_modified_time || seo?.opengraphModifiedTime || '',
