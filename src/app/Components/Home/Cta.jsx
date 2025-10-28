@@ -86,6 +86,7 @@ export default function Cta({HomePageData}) {
       {/* Popup Modal */}
       {showModal && (
         <ContactModal
+          HomePageData={HomePageData}
           contact={contact}
           onClose={handleCloseModalAndReset}
         />

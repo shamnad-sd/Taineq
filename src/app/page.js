@@ -42,7 +42,6 @@ const Home = async () => {
   );
   const FaqData = await Faq.json();
 
-
   return (
     <div>
       <HomePage

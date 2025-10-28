@@ -11,7 +11,7 @@ const HomePage = ({
   ProductItemsData,
   HomeSliderData,
   FeaturesData,
-  FaqData
+  FaqData,
 }) => {
 
   return (

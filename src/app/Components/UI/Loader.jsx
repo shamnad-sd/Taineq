@@ -43,7 +43,7 @@ export default function Loader() {
                         ))}
 
                         <div className="relative z-10 p-6 bg-white rounded-full shadow-xl">
-                            <Image src="/emerald-logo.png" alt="Loading" width={50} height={50} />
+                            <Image src="/TAINEQ-loader.png" alt="Loading" width={50} height={50} />
                         </div>
                     </div>
 
