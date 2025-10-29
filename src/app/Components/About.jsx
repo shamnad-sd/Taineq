@@ -19,8 +19,6 @@ const About = ({ AboutData }) => {
 
                 />
                 <AboutDetails AboutData={AboutData} />
-
-
             </section>
     )
 }
