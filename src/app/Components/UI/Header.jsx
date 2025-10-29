@@ -225,7 +225,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
               ""
             ) : (
               <svg width="28" height="13" viewBox="0 0 28 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.5 1.5H26.5M1.5 11.5H26.5" stroke="#0065EC" strokeWidth="3" stroke-linecap="round" stroke-linejoin="bevel" />
+                <path d="M1.5 1.5H26.5M1.5 11.5H26.5" stroke="#0065EC" strokeWidth="3" strokeLinecap="round" strokeLinejoin="bevel" />
               </svg>
 
             )}

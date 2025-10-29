@@ -33,7 +33,7 @@ const FooterMain = async () => {
 
   return (
     <div>
-      {/* <Cta  HomePageData={HomePageData} /> */}
+      <Cta  HomePageData={HomePageData} />
       <Footer
         EquipmentsData={EquipmentsData}
         AddressData={AddressData}

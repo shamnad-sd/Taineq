@@ -26,3 +26,9 @@ h1, h2, h3, h4, h5, h6 {
   color : #334486;
   line-height : 30px
 }
+
+.content strong {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 700; 
+}

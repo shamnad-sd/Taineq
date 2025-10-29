@@ -10,7 +10,7 @@ const About = ({ AboutData }) => {
 
 
     return (
-            <section className='py-[30px] md:pt-[50px] md:pb-[70px] px-[20px] md:px-[50px]'>
+            <section className='pt-[30px] md:pt-[50px] md:pb-[30px] px-[20px] md:px-[50px]'>
                 <CommonHeader
                     Heading={AboutData?.title?.rendered}
                     subHeading={AboutData?.acf?.about_heading}
