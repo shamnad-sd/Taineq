@@ -242,7 +242,7 @@ const getSubMenusForItem = (item) => {
                   <div className="flex items-center justify-between w-full px-6 py-4">
                     <Link
                       href={item.url}
-                      className="block uppercase text-left font-bold text-black text-base flex-1 focus:outline-none hover:text-[#5eb95e] transition-colors"
+                      className="block uppercase text-left font-bold Primary-color text-base flex-1 focus:outline-none hover:text-[#0065EC] transition-colors"
                       onClick={() => handleMobileNavigation(item)}
                     >
                       {item.title}
@@ -266,7 +266,7 @@ const getSubMenusForItem = (item) => {
                         <Link
                           key={subItem.id}
                           href={'/rental-services'}
-                          className="block px-8 py-3 text-sm  hover:text-[#fff] hover:bg-[#0065EC] transition-colors border-b border-gray-200 last:border-b-0"
+                          className="block px-8 py-3 text-sm  text-[#334486]   hover:text-[#fff] hover:bg-[#0065EC] transition-colors border-b border-gray-200 last:border-b-0"
                         >
                           {subItem.title}
                         </Link>
