@@ -38,7 +38,7 @@ export default function HeroSection({ HomePageData }) {
         className="absolute top-0 left-0 w-full h-full z-10"
         style={{
           background:
-            "linear-gradient(180deg, #003B8A 0%, #0065EC 48%, #FFFFFF 100%)",
+            "linear-gradient(180deg, #003B8A 0%, #0065EC 48%, #FFFFFF 90%)",
           opacity: 0.75,
         }}
       ></div>

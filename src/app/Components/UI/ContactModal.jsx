@@ -71,7 +71,7 @@ function ContactModal({ what, where, contact, onClose , HomePageData }) {
           >
             ×
           </button>
-          <h2 className="text-2xl font-semibold mb-4">{HomePageData?.acf?.contact_popup?.popup_heading}</h2>
+          <h2 className="text-2xl font-semibold Primary-color mb-4">{HomePageData?.acf?.contact_popup?.popup_heading}</h2>
           <p className="pb-4 text-[#334486] ">{HomePageData?.acf?.contact_popup?.popup_description}</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
