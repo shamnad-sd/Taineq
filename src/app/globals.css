@@ -12,9 +12,28 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat), sans-serif;
 }
 
-.Primary-font {
-  font-family: "SohoGothicPro-Medium", sans-serif;
+@media (max-width: 760px) {
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 39px; /* Set line height for all headings on mobile */
+  }
 }
+
+/* @font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-ExtraLightDEMO.otf') format('opentype');
+  font-weight: 300; 
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/fonts/Mont-HeavyDEMO.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
 
 .Primary-color {
   color: #001568;

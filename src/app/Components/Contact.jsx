@@ -1,6 +1,7 @@
 
 import CommonHeader from './UI/CommonHeader'
 import Images from './UI/Images'
+import Form from './UI/Form'
 
 const Contact = ({ contactData }) => {
 
@@ -9,8 +10,6 @@ const Contact = ({ contactData }) => {
 
 
     return (
-
-
         <section className='pt-[30px] md:pt-[50px] md:pb-[30px] px-[20px] md:px-[50px]'>
             <CommonHeader
                 Heading={contactData?.title?.rendered}
@@ -19,9 +18,9 @@ const Contact = ({ contactData }) => {
                 BreadcrumbLink={contactData?.slug}
             />
 
-            <div className="flex flex-col xl:flex-row items-center xl:justify-center min-h-screen bg-white mt-10">
+            <div className="flex flex-col xl:flex-row xl:items-center xl:justify-center bg-white mt-10">
                 {/* Left Section (Image) */}
-                <div className=" overflow-hidden mb-8 md:mb-0 xl:mr-[-7rem]">
+                <div className=" overflow-hidden  md:h-[400px] xl:h-full  mb-8 xl:mb-0 xl:mr-[-10rem]">
                     <Images
                         imageurl={contactData?.acf?.contact_image?.url}
                         alt={contactData?.acf?.contact_image?.alt}
@@ -33,41 +32,54 @@ const Contact = ({ contactData }) => {
                     />
                 </div>
 
-                {/* Right Section (Form) */}
-                <div className="bg-white rounded-[2rem] xl:border xl:border-gray-200 xl:px-[70px] xl:py-[80px] xl:max-w-[680px] w-full">
-                    <h2 className=" text-[24px]   text-[#093178] mb-8">
-                        How we can help?
-                    </h2>
-                    <form className="space-y-4">
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
-                        />
-                        <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-                            <input
-                                type="text"
-                                placeholder="Phone"
-                                className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
-                            />
+                <Form contactData={contactData} />
+            </div>
+
+            <div className='pt-10 pb-14 md:pt-20 md:pb-20'>
+                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 max-w-6xl mx-auto items-center">
+                    {/* Left: Heading */}
+                    <div className="flex items-center md:items-start h-full xl:pl-[2rem] pb-5">
+                        <h2 className="Primary-color text-[24px] md:text-[40px] lg:text-[44px] leading-tight">
+                            {contactData?.acf?.contact_heading}
+                        </h2>
+                    </div>
+
+                    {/* Right: Contact Details */}
+                    <div className="flex flex-col gap-y-8 md:gap-y-24 justify-center xl:items-start md:pl-[6rem] py-4 md:pt-8">
+                        {/* Email */}
+                        <div>
+                            <h3 className="Primary-color font-semibold text-lg md:mb-5 mb-3">
+                                {contactData?.acf?.email_heading}
+                            </h3>
+                            <div className="w-7 h-[3px] bg-[#0065EC] md:mb-6 mb-7 " />
+                            <a
+                                href={`mailto:${contactData?.acf?.email}`}
+                                className="Primary-color font-semibold text-[22px]  md:text-[24px] block mb-3"
+                            >
+                                {contactData?.acf?.email}
+                            </a>
+                            <div className="paragraph-color text-[17px] max-w-[12rem]">
+                                {contactData?.acf?.assistance_hours}
+                            </div>
                         </div>
-                        <textarea
-                            placeholder="Message"
-                            rows={3}
-                            className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
-                        />
-                        <button
-                            type="submit"
-                            className="w-fit px-7 py-3 bg-[#1563d7] text-white font-semibold cursor-pointer text-lg rounded-full hover:bg-[#093178] transition"
-                        >
-                            Submit
-                        </button>
-                    </form>
+
+                        {/* Number */}
+                        <div>
+                            <h3 className="Primary-color font-semibold text-lg md:mb-5 mb-3">
+                                {contactData?.acf?.phone_number_heading}
+                            </h3>
+                            <div className="w-7 h-[3px] bg-[#0065EC] md:mb-6 mb-7" />
+                            <a
+                                href={`tel:${contactData?.acf?.phone_number}`}
+                                className="Primary-color font-semibold text-[22px] md:text-[24px] block mb-3"
+                            >
+                                {contactData?.acf?.phone_number}
+                            </a>
+                            <div className="paragraph-color max-w-[12rem]">
+                                {contactData?.acf?.assistance_hours_2}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

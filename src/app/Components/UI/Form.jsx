@@ -4,15 +4,13 @@ import { siteEmail, siteName } from '@/utils/variable';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import Loader from './Loader';
-import AnimatedElement from '../AnimatedElement';
-import { useSiteContext } from '@/context/siteContext';
 
-const Form = ({ contactData, borderColor = 'gray-200', PaddingLeft ='lg:pr-[49px]', border='border-t-1' }) => {
-    const { contactPageData } = useSiteContext()
-    
+const Form = ({ contactData }) => {
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
+    const [location, setLocation] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false)
 
@@ -25,7 +23,7 @@ const Form = ({ contactData, borderColor = 'gray-200', PaddingLeft ='lg:pr-[49px
                 sendTo: `${siteEmail}`,
                 name: "Admin",
                 subject: `Contact - ${siteName}`,
-                message: await ContactEmailTemplate(name, email, phone, message),
+                message: await ContactEmailTemplate(name, email, phone, message, location),
             });
 
             await sendMail({
@@ -40,6 +38,7 @@ const Form = ({ contactData, borderColor = 'gray-200', PaddingLeft ='lg:pr-[49px
             setName("");
             setEmail("");
             setPhone("");
+            // setLocation("");
             setMessage("");
         } catch (error) {
             setLoading(false);
@@ -47,9 +46,6 @@ const Form = ({ contactData, borderColor = 'gray-200', PaddingLeft ='lg:pr-[49px
             toast.error("Failed to send message. Try again!");
         }
     };
-
-    // Dynamic input classes
-    const inputClasses = `w-full p-4 border-1 border-${borderColor} placeholder:text-[18px] focus:border-green-500 focus:outline-none transition-colors duration-300`;
 
     return (
         <>
@@ -59,73 +55,66 @@ const Form = ({ contactData, borderColor = 'gray-200', PaddingLeft ='lg:pr-[49px
                 </div>
             )}
 
-            <AnimatedElement animation='fade-up' delay={800} className={` ${border} ${PaddingLeft} border-gray-300 lg:border-0 pt-10 lg:pt-0 order-2 lg:order-1`}>
-                
-                <h3 className="text-[20px] uppercase Secondary-color Primary-font mb-4 tracking-wide">
-                    {contactData?.acf?.get_in_touch_heading}
-                </h3>
-                <p className="para mb-5 leading-relaxed"
-                    dangerouslySetInnerHTML={{
-                        __html: contactData?.acf?.get_in_description
-                    }}
-                />
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className={inputClasses}
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className={inputClasses}
-                            required
-                        />
-                    </div>
-
-                    <div>
+            <div className="bg-white rounded-[2rem] xl:border xl:border-gray-200 xl:px-[70px] xl:py-[80px] xl:max-w-[680px] w-full">
+                <h2 className="text-[24px] md:text-[34px]   Primary-color mb-8">
+                    {contactData?.acf?.contact_form_heading}
+                </h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                    />
+                    <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
                         <input
                             type="tel"
                             name="phone"
                             placeholder="Phone"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
-                            className={inputClasses}
-                        />
-                    </div>
-
-                    <div>
-                        <textarea
-                            name="message"
-                            placeholder="Message"
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            rows="5"
-                            className={`${inputClasses} resize-vertical`}
                             required
+                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
                         />
                     </div>
-
+                    {/* <input
+                        type="text"
+                        name="location"
+                        placeholder="Location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        required
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                    /> */}
+                    <textarea
+                        name="message"
+                        placeholder="Message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        rows="3"
+                        required
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                    />
                     <button
                         type="submit"
-                        className="bg-[#63af51] uppercase hover:bg-[#145D3E] cursor-pointer text-white font-semibold py-4 px-8 transition-colors duration-300 tracking-wide"
+                        className="w-fit px-7 py-3 bg-[#0065EC]  text-white cursor-pointer text-base rounded-full hover:bg-[#093178] transition"
                     >
-                        {contactPageData?.acf?.submit_button}
+                        {contactData?.acf?.contact_form_button}
                     </button>
                 </form>
-            </AnimatedElement>
+            </div>
         </>
     )
 }

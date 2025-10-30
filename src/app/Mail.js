@@ -142,12 +142,14 @@ export async function ContactEmailTemplate(
                 </tr>
               </table>
 
+              ${location && location.toString().trim() ? `
               <div style="background-color: #eaf3ff; padding: 15px; border-radius: 10px; padding-bottom:20px; margin-bottom:25px;">
-                      <strong style="font-size: 13px; color: #888;">Location</strong>
-                      <p style="margin: 5px 0 0; font-size: 14px;">
-                        <a href="" style="color: #334486; text-decoration: none;">${location}</a>
-                      </p>
-                    </div>
+                <strong style="font-size: 13px; color: #888;">Location</strong>
+                <p style="margin: 5px 0 0; font-size: 14px; color: #334486;">
+                  ${location}
+                </p>
+              </div>
+              ` : ''}
 
 
               <!-- Message Box -->
