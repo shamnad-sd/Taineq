@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { FiArrowLeft, FiPlus, FiChevronDown, FiMinus } from "react-icons/fi"
 import Images from "./Images"
 
-const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }) => {
+const Header = ({ HomePageData, HeaderData,}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [showHeader, setShowHeader] = useState(true)
   const [headerHeight, setHeaderHeight] = useState(0)
@@ -18,56 +18,26 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
   const pathname = usePathname()
   const router = useRouter()
 
-  // Function to get sub-menus based on menu name/slug
-  const getSubMenusForItem = (itemTitle) => {
-    const menuKey = itemTitle.toLowerCase()
-
-    let subMenuData = null
-    let urlPrefix = ""
-
-    // Map the individual props to the correct data and set URL prefix
-    switch (menuKey) {
-      case "signage":
-        subMenuData = SignageData
-        urlPrefix = "/signage"
-        break
-      case "its":
-        subMenuData = ItsData
-        urlPrefix = "/its"
-        break
-      case "products":
-        subMenuData = ProductsData
-        urlPrefix = "/products"
-        break
-      default:
-        return []
-    }
-
-    if (subMenuData && subMenuData.items) {
-      return subMenuData.items.map((item) => ({
-        id: item.id,
-        title: item.title,
-        url: `${urlPrefix}${item.url}`, // Add prefix to the URL
-      }))
-    }
-
-    return []
+const getSubMenusForItem = (item) => {
+  if (item.title.toLowerCase() === "rental services") {
+    return HeaderData?.items?.filter(
+      subItem => subItem.parent === String(item.id)
+    ).map(subItem => ({
+      id: subItem.id,
+      title: subItem.title,
+      url: subItem.url
+    }))
   }
 
+  return [];
+}
 
+  const navItems = HeaderData?.items?.filter(item => item.parent === "0")
+  .map((item) => ({
+    ...item,
+    subMenus: getSubMenusForItem(item)
+  }));
 
-  // Enhanced nav items with sub-menus from API
-  const navItems = HeaderData?.items?.map((item) => {
-    const hasSubMenu = ["signage", "its", "products"].includes(item.title.toLowerCase())
-
-    if (hasSubMenu) {
-      return {
-        ...item,
-        subMenus: getSubMenusForItem(item.title),
-      }
-    }
-    return item
-  })
 
   // Sticky scroll behavior
   useEffect(() => {
@@ -199,8 +169,8 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
                         {item.subMenus.map((subItem) => (
                           <Link
                             key={subItem.id}
-                            href={subItem.url}
-                            className="block px-4 py-3 text-sm text-[#666666] text-[14px] border-b-2 border-gray-100 last:border-0 hover:bg-gray-50 hover:text-[#5eb95e] transition-colors"
+                            href={'/rental-services'}
+                            className="block px-4 py-3 text-sm text-[#334486] text-[14px] border-b-2 border-gray-100 last:border-0 hover:bg-gray-50 hover:text-[#0065EC] transition-colors"
                             onClick={() => setHoveredMenu(null)} // Add this line to close dropdown on click
                           >
                             {subItem.title}
@@ -279,7 +249,7 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
                     </Link>
                     {hasSubMenu && (
                       <button
-                        className="text-[#5eb95e] cursor-pointer text-xl ml-2 p-1 transition-transform duration-200"
+                        className="text-[#0065EC] cursor-pointer text-xl ml-2 p-1 transition-transform duration-200"
                         onClick={() => toggleMobileSubMenu(item.id)}
                         aria-label={`${isExpanded ? "Close" : "Open"} ${item.title} submenu`}
                       >
@@ -295,9 +265,8 @@ const Header = ({ HomePageData, HeaderData, SignageData, ItsData, ProductsData }
                       {item.subMenus.map((subItem) => (
                         <Link
                           key={subItem.id}
-                          href={subItem.url}
-                          className="block px-8 py-3 text-sm  hover:text-[#fff] hover:bg-[#63af51] transition-colors border-b border-gray-200 last:border-b-0"
-                          onClick={() => handleSubMenuClick(subItem.url)}
+                          href={'/rental-services'}
+                          className="block px-8 py-3 text-sm  hover:text-[#fff] hover:bg-[#0065EC] transition-colors border-b border-gray-200 last:border-b-0"
                         >
                           {subItem.title}
                         </Link>
