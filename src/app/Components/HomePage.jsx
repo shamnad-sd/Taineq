@@ -28,7 +28,7 @@ const HomePage = ({
       <FeaturesGridSection FeaturesData={FeaturesData} />
       <HomeAbout HomePageData={HomePageData}/>
       <Faq FaqData={FaqData} HomePageData={HomePageData}/>
-      <Cta HomePageData={HomePageData}/>
+      {/* <Cta HomePageData={HomePageData}/> */}
 
     </div>
   )
