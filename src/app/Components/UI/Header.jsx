@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { FiArrowLeft, FiPlus, FiChevronDown, FiMinus } from "react-icons/fi"
 import Images from "./Images"
 
-const Header = ({ HomePageData, HeaderData,}) => {
+const Header = ({ HomePageData, HeaderData, }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [showHeader, setShowHeader] = useState(true)
   const [headerHeight, setHeaderHeight] = useState(0)
@@ -18,25 +18,25 @@ const Header = ({ HomePageData, HeaderData,}) => {
   const pathname = usePathname()
   const router = useRouter()
 
-const getSubMenusForItem = (item) => {
-  if (item.title.toLowerCase() === "rental services") {
-    return HeaderData?.items?.filter(
-      subItem => subItem.parent === String(item.id)
-    ).map(subItem => ({
-      id: subItem.id,
-      title: subItem.title,
-      url: subItem.url
-    }))
+  const getSubMenusForItem = (item) => {
+    if (item.title.toLowerCase() === "rental services") {
+      return HeaderData?.items?.filter(
+        subItem => subItem.parent === String(item.id)
+      ).map(subItem => ({
+        id: subItem.id,
+        title: subItem.title,
+        url: subItem.url
+      }))
+    }
+
+    return [];
   }
 
-  return [];
-}
-
   const navItems = HeaderData?.items?.filter(item => item.parent === "0")
-  .map((item) => ({
-    ...item,
-    subMenus: getSubMenusForItem(item)
-  }));
+    .map((item) => ({
+      ...item,
+      subMenus: getSubMenusForItem(item)
+    }));
 
 
   // Sticky scroll behavior
@@ -147,20 +147,23 @@ const getSubMenusForItem = (item) => {
                   onMouseEnter={() => handleMouseEnter(item.id)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link
-                    href={item.url}
-                    className={`
-                      px-2 py-2 flex items-center gap-1
-                      ${pathname === item.url ? "text-[#0065EC]" : "text-[#001568]"}
-                      hover:text-[#0065EC]
-                      transition
-                    `}
-                    style={{ letterSpacing: "0.02em" }}
-                  >
-                    {item.title}
-                    {item.subMenus && item.subMenus.length > 0 && ""}
-                    {/* <FiChevronDown className="text-sm ml-1" /> */}
-                  </Link>
+                  {item.title.toLowerCase() === "rental services" ? (
+                    <span
+                      className="px-2 py-2 flex items-center gap-1 text-[#001568]"
+                      style={{ cursor: "default", letterSpacing: "0.02em" }}
+                    >
+                      {item.title}
+                    </span>
+                  ) : (
+                    <Link
+                      href={item.url}
+                      className={`px-2 py-2 flex items-center gap-1 ${pathname === item.url ? "text-[#0065EC]" : "text-[#001568]"} hover:text-[#0065EC] transition`}
+                      style={{ letterSpacing: "0.02em" }}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+
 
                   {/* Desktop Dropdown */}
                   {item.subMenus && item.subMenus.length > 0 && hoveredMenu === item.id && (
@@ -169,7 +172,7 @@ const getSubMenusForItem = (item) => {
                         {item.subMenus.map((subItem) => (
                           <Link
                             key={subItem.id}
-                            href={'/rental-services'}
+                            href={subItem.url}
                             className="block px-4 py-3 text-sm text-[#334486] text-[14px] border-b-2 border-gray-100 last:border-0 hover:bg-gray-50 hover:text-[#0065EC] transition-colors"
                             onClick={() => setHoveredMenu(null)} // Add this line to close dropdown on click
                           >
@@ -184,7 +187,7 @@ const getSubMenusForItem = (item) => {
               )}
           </nav>
 
-         
+
           {/* Mobile Menu Button */}
           <button
             className="xl:hidden cursor-pointer text-[#1f1fce] z-[100]"
@@ -240,13 +243,23 @@ const getSubMenusForItem = (item) => {
                 <div key={item.id} className="border-b border-[#f2f2f2] last:border-0 ">
                   {/* Main Menu Item */}
                   <div className="flex items-center justify-between w-full px-6 py-4">
-                    <Link
-                      href={item.url}
-                      className="block uppercase text-left font-bold Primary-color text-base flex-1 focus:outline-none hover:text-[#0065EC] transition-colors"
-                      onClick={() => handleMobileNavigation(item)}
-                    >
-                      {item.title}
-                    </Link>
+                    {item.title.toLowerCase() === "rental services" ? (
+                      <span
+                        className="block uppercase text-left font-bold Primary-color text-base flex-1"
+                        style={{ cursor: "default" }}
+                      >
+                        {item.title}
+                      </span>
+                    ) : (
+                      <Link
+                        href={item.url}
+                        className="block uppercase text-left font-bold Primary-color text-base flex-1 focus:outline-none hover:text-[#0065EC] transition-colors"
+                        onClick={() => handleMobileNavigation(item)}
+                      >
+                        {item.title}
+                      </Link>
+                    )}
+
                     {hasSubMenu && (
                       <button
                         className="text-[#0065EC] cursor-pointer text-xl ml-2 p-1 transition-transform duration-200"
@@ -265,7 +278,7 @@ const getSubMenusForItem = (item) => {
                       {item.subMenus.map((subItem) => (
                         <Link
                           key={subItem.id}
-                          href={'/rental-services'}
+                          href={subItem.url}
                           className="block px-8 py-3 text-sm  text-[#334486]   hover:text-[#fff] hover:bg-[#0065EC] transition-colors border-b border-gray-200 last:border-b-0"
                         >
                           {subItem.title}
