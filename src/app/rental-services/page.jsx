@@ -1,3 +1,11 @@
+import { notFound } from 'next/navigation';
+
+const servicesPage = () => {
+  notFound();
+};
+
+export default servicesPage;
+
 // import React from 'react'
 // import { ApiUrl } from '@/utils/urls'
 // import { generateMetadata as generateMetadataFromLib } from "@/lib/generateMetadata";
@@ -36,11 +44,3 @@
 
 //   return generateMetadataFromLib(servicesData, false, "/rental-services");
 // }
-
-import { notFound } from 'next/navigation';
-
-const servicesPage = () => {
-  notFound();
-};
-
-export default servicesPage;

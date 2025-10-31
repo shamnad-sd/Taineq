@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { FiArrowLeft, FiPlus, FiChevronDown, FiMinus } from "react-icons/fi"
 import Images from "./Images"
 
-const Header = ({ HomePageData, HeaderData, }) => {
+const Header = ({ HomePageData, HeaderData, servicesListingData }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [showHeader, setShowHeader] = useState(true)
   const [headerHeight, setHeaderHeight] = useState(0)
@@ -20,20 +20,18 @@ const Header = ({ HomePageData, HeaderData, }) => {
 
   const getSubMenusForItem = (item) => {
     if (item.title.toLowerCase() === "rental services") {
-      return HeaderData?.items?.filter(
-        subItem => subItem.parent === String(item.id)
-      ).map(subItem => ({
-        id: subItem.id,
-        title: subItem.title,
-        url: subItem.url
+      // Instead of using HeaderData items as submenus, use servicesListingData pages
+      return servicesListingData.map(page => ({
+        id: page.id,
+        title: page.title.rendered,
+        // Build URL from slug to match your routing for rental services pages
+        url: `/rental-services/${page.slug}`,
       }))
     }
-
     return [];
   }
-
   const navItems = HeaderData?.items?.filter(item => item.parent === "0")
-    .map((item) => ({
+    .map(item => ({
       ...item,
       subMenus: getSubMenusForItem(item)
     }));

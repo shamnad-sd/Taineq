@@ -10,6 +10,12 @@ const HeaderMain = async () => {
         })
     const HeaderData = await Header_main.json();
 
+    const allPagesRes = await fetch(`${ApiUrl}/wp-json/wp/v2/pages?per_page=100`, {
+        next: { revalidate: 60 },
+      })
+      const allPages = await allPagesRes.json()
+    
+      const servicesListingData = allPages.filter(page => page.acf?.is_service === true)
 
 
 
@@ -25,6 +31,7 @@ const HeaderMain = async () => {
             <Header
                 HomePageData={HomePageData}
                 HeaderData={HeaderData}
+                servicesListingData={servicesListingData}
             />
         </div>
     )

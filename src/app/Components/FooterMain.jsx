@@ -5,11 +5,13 @@ import Cta from './UI/Cta';
 
 const FooterMain = async () => {
 
-  const Equipments = await fetch(`${ApiUrl}/wp-json/custom/v1/menus/equipments`,
-    {
-      next: { revalidate: 60 },
-    })
-  const EquipmentsData = await Equipments.json();
+
+  const allPagesRes = await fetch(`${ApiUrl}/wp-json/wp/v2/pages?per_page=100`, {
+    next: { revalidate: 60 },
+  })
+  const allPages = await allPagesRes.json()
+
+  const servicesListingData = allPages.filter(page => page.acf?.is_service === true)
 
 
   const Address = await fetch(`${ApiUrl}/wp-json/custom/v1/menus/address`,
@@ -33,14 +35,13 @@ const FooterMain = async () => {
 
   return (
     <div>
-      <Cta  HomePageData={HomePageData} />
+      <Cta HomePageData={HomePageData} />
       <Footer
-        EquipmentsData={EquipmentsData}
+        EquipmentsData={servicesListingData}
         AddressData={AddressData}
         SiteMapData={SiteMapData}
         HomePageData={HomePageData}
       />
-      {/* <Footer/> */}
     </div>
   )
 }

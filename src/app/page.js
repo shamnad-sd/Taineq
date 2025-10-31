@@ -3,12 +3,23 @@ import HomePage from "./Components/HomePage";
 import { generateMetadata as generateMetadataFromLib } from "@/lib/generateMetadata";
 
 const Home = async () => {
-  
   const HomeData = await fetch(`${ApiUrl}/wp-json/wp/v2/pages/658`, {
     next: { revalidate: 60 },
   });
 
   const HomePageData = await HomeData.json();
+
+  const allPagesRes = await fetch(
+    `${ApiUrl}/wp-json/wp/v2/pages?per_page=100`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
+  const allPages = await allPagesRes.json();
+
+  const servicesListingData = allPages.filter(
+    (page) => page.acf?.is_service === true
+  );
 
   const productItems = await fetch(
     `${ApiUrl}/wp-json/wp/v2/equipment-rentals`,
@@ -18,28 +29,19 @@ const Home = async () => {
   );
   const ProductItemsData = await productItems.json();
 
-  const HomeSlider = await fetch(
-    `${ApiUrl}/wp-json/wp/v2/home-slider`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const HomeSlider = await fetch(`${ApiUrl}/wp-json/wp/v2/home-slider`, {
+    next: { revalidate: 60 },
+  });
   const HomeSliderData = await HomeSlider.json();
 
-  const Features = await fetch(
-    `${ApiUrl}/wp-json/wp/v2/feature`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const Features = await fetch(`${ApiUrl}/wp-json/wp/v2/feature`, {
+    next: { revalidate: 60 },
+  });
   const FeaturesData = await Features.json();
 
-  const Faq = await fetch(
-    `${ApiUrl}/wp-json/wp/v2/faq`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const Faq = await fetch(`${ApiUrl}/wp-json/wp/v2/faq`, {
+    next: { revalidate: 60 },
+  });
   const FaqData = await Faq.json();
 
   return (
@@ -47,6 +49,7 @@ const Home = async () => {
       <HomePage
         HomePageData={HomePageData}
         ProductItemsData={ProductItemsData}
+        servicesListingData={servicesListingData}
         HomeSliderData={HomeSliderData}
         FeaturesData={FeaturesData}
         FaqData={FaqData}

@@ -5,11 +5,11 @@ import EquipmentsSlider from './Home/EquipmentsSlider'
 import FeaturesGridSection from './Home/FeaturesGridSection'
 import HomeAbout from './Home/HomeAbout'
 import Faq from './Home/Faq'
-import Cta from './UI/Cta'
+
 
 const HomePage = ({
   HomePageData,
-  ProductItemsData,
+  servicesListingData,
   HomeSliderData,
   FeaturesData,
   FaqData,
@@ -17,19 +17,12 @@ const HomePage = ({
 
   return (
     <div>
-      <HeroSection HomePageData={HomePageData}
-      />
-
-      <HomeEquipments
-        HomePageData={HomePageData}
-        ProductItemsData={ProductItemsData}
-      />
+      <HeroSection HomePageData={HomePageData} />
+      <HomeEquipments HomePageData={HomePageData} ProductItemsData={servicesListingData} />
       <EquipmentsSlider HomeSliderData={HomeSliderData} />
       <FeaturesGridSection FeaturesData={FeaturesData} />
-      <HomeAbout HomePageData={HomePageData}/>
-      <Faq FaqData={FaqData} HomePageData={HomePageData}/>
-      {/* <Cta HomePageData={HomePageData}/> */}
-
+      <HomeAbout HomePageData={HomePageData} />
+      <Faq FaqData={FaqData} HomePageData={HomePageData} />
     </div>
   )
 }
