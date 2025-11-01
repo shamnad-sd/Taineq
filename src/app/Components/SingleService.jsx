@@ -13,10 +13,16 @@ const SingleService = ({ serviceDetail }) => {
       <CommonHeader
         Heading={serviceDetail?.title?.rendered}
         breadcrumbItems={[
-        //   { title: 'Rental Service', href: '/rental-service' },
           { title: serviceDetail?.title?.rendered, href: `/rental-service/${serviceDetail?.slug}` }
         ]}
       />
+
+      <div className='pt-20 service-details' 
+      dangerouslySetInnerHTML={{
+        __html : serviceDetail?.content?.rendered
+      }}
+      >
+      </div>
 
 
     </div>

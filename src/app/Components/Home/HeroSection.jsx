@@ -27,20 +27,23 @@ export default function HeroSection({ HomePageData }) {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 grayscale brightness-50"
       >
         <source src={`${HomePageData?.acf?.hero?.hero_video}`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       {/* Gradient Overlay */}
-      <div
+      {/* <div
         className="absolute top-0 left-0 w-full h-full z-10"
         style={{
           background:
             "linear-gradient(180deg, #003B8A 0%, #0065EC 48%, #FFFFFF 90%)",
           opacity: 0.75,
         }}
+      ></div> */}
+       <div
+        className="absolute top-0 left-0 w-full h-full z-10 bg-black/50"
       ></div>
 
       {/* Content */}

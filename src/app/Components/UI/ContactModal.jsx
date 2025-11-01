@@ -71,14 +71,14 @@ function ContactModal({ what, where, contact, onClose , HomePageData }) {
           >
             ×
           </button>
-          <h2 className="text-2xl font-semibold Primary-color mb-4">{HomePageData?.acf?.contact_popup?.popup_heading}</h2>
+          <h2 className="text-2xl font-semibold Secondary-color mb-4">{HomePageData?.acf?.contact_popup?.popup_heading}</h2>
           <p className="pb-4 text-[#334486] ">{HomePageData?.acf?.contact_popup?.popup_description}</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-[#0065EC]"
+              className="w-full px-4 py-2 border border-[#DDDDDD]  rounded-lg   focus:outline-none focus:ring-1 focus:ring-[#0065ec]"
               placeholder="Name"
               required
             />
@@ -86,7 +86,7 @@ function ContactModal({ what, where, contact, onClose , HomePageData }) {
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-[#0065EC]"
+              className="w-full px-4 py-2 border border-[#DDDDDD]  rounded-lg  focus:outline-none focus:ring-1 focus:ring-[#0065ec]"
               placeholder="Email"
               required
             />
@@ -94,22 +94,22 @@ function ContactModal({ what, where, contact, onClose , HomePageData }) {
               type="text"
               value={location}
               onChange={e => setLocation(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-[#0065EC]"
-              placeholder="Location"
+              className="w-full px-4 py-2 border border-[#DDDDDD]  rounded-lg  focus:outline-none focus:ring-1 focus:ring-[#0065ec]"
+              placeholder="Location" 
               required
             />
             <input
               type="tel"
               value={phone}
               onChange={e => setPhone(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-[#0065EC]"
+              className="w-full px-4 py-2 border border-[#DDDDDD]  rounded-lg focus:outline-none focus:ring-1 focus:ring-[#0065ec]"
               placeholder="Phone Number"
               required
             />
             <textarea
               value={message}
               onChange={e => setMessage(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-[#0065EC]"
+              className="w-full px-4 py-2 rounded-2xl border border-[#DDDDDD] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#0065ec]"
               rows={3}
               placeholder="Message"
               required

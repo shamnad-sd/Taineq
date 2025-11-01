@@ -67,7 +67,7 @@ const Form = ({ contactData }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#0065ec] placeholder:text-[#dbdbdb]"
                     />
                     <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
                         <input
@@ -77,7 +77,7 @@ const Form = ({ contactData }) => {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             required
-                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#0065ec] placeholder:text-[#dbdbdb]"
                         />
                         <input
                             type="email"
@@ -86,7 +86,7 @@ const Form = ({ contactData }) => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                            className="md:w-1/2 border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#0065ec] placeholder:text-[#dbdbdb]"
                         />
                     </div>
                     {/* <input
@@ -96,7 +96,7 @@ const Form = ({ contactData }) => {
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
                         required
-                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#0065ec] placeholder:text-[#dbdbdb]"
                     /> */}
                     <textarea
                         name="message"
@@ -105,7 +105,7 @@ const Form = ({ contactData }) => {
                         onChange={(e) => setMessage(e.target.value)}
                         rows="3"
                         required
-                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#093178] placeholder:text-[#dbdbdb]"
+                        className="w-full border border-[#DDDDDD]  rounded-lg py-3 px-4 text-[1.05rem] focus:outline-none focus:ring-2 focus:ring-[#0065ec] placeholder:text-[#dbdbdb]"
                     />
                     <button
                         type="submit"

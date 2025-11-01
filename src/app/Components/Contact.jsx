@@ -38,11 +38,18 @@ const Contact = ({ contactData }) => {
             <div className='pt-10 pb-14 md:pt-20 md:pb-20'>
                 <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 max-w-6xl mx-auto items-center">
                     {/* Left: Heading */}
-                    <div className="flex items-center md:items-start h-full xl:pl-[2rem] pb-5">
+                    {/* <div className="flex items-center md:items-start h-full xl:pl-[2rem] pb-5">
+                        <h2 className="Primary-color text-[24px] md:text-[40px] lg:text-[44px] leading-tight">
+                            {contactData?.acf?.contact_heading}
+                        </h2>
+                    </div> */}
+                    <div className="md:sticky md:top-20 self-start xl:pl-[2rem] pb-5">
                         <h2 className="Primary-color text-[24px] md:text-[40px] lg:text-[44px] leading-tight">
                             {contactData?.acf?.contact_heading}
                         </h2>
                     </div>
+
+
 
                     {/* Right: Contact Details */}
                     <div className="flex flex-col gap-y-8 md:gap-y-24 justify-center xl:items-start md:pl-[6rem] py-4 md:pt-8">
