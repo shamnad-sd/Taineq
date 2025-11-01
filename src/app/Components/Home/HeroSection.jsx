@@ -34,17 +34,17 @@ export default function HeroSection({ HomePageData }) {
       </video>
 
       {/* Gradient Overlay */}
-      {/* <div
+      <div
         className="absolute top-0 left-0 w-full h-full z-10"
         style={{
           background:
             "linear-gradient(180deg, #003B8A 0%, #0065EC 48%, #FFFFFF 90%)",
-          opacity: 0.75,
+          opacity: 0.45,
         }}
-      ></div> */}
-       <div
-        className="absolute top-0 left-0 w-full h-full z-10 bg-black/50"
       ></div>
+       {/* <div
+        className="absolute top-0 left-0 w-full h-full z-10 bg-black/50"
+      ></div> */}
 
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center w-full px-4">

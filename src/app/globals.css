@@ -58,9 +58,8 @@ h6 {
   font-weight: 700;
 }
 
-/* Main Container Styling */
+/* ===================================================== Services ====================================================== */
 
-/* Block Columns Layout - Desktop keeps original order */ /* Block Columns Layout - Desktop keeps original order */
 .service-details .wp-block-columns.is-layout-flex {
   display: flex;
   gap: 0;
@@ -286,5 +285,280 @@ h6 {
     font-size: 17px !important;
     color: #334486;
     line-height: 30px;
+  }
+}
+
+
+
+/* ===================================================== About Us ====================================================== */
+
+/* About Page Container */
+.about-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section Spacing */
+.about-details > * {
+  margin-bottom: 4rem;
+}
+
+/* Header Section Styling */
+.about-details .wp-block-group:first-child {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+/* Small Label/Tag above headings */
+.about-details .wp-block-heading:not(h2):not(h3) {
+  color: #0066CC;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-details .wp-block-heading:not(h2):not(h3)::before {
+  content: '';
+  width: 40px;
+  height: 2px;
+  background: #0066CC;
+  display: inline-block;
+}
+
+/* Main Heading (h1 or h2) */
+.about-details h1,
+.about-details h2.wp-block-heading {
+  color: #001568;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+/* Subheading (h3) */
+.about-details h3.wp-block-heading {
+  color: #001568;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph Text */
+.about-details p {
+  color: #334486;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Two Column Layout - Image + Content */
+.about-details .wp-block-columns.is-layout-flex {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+/* Column styling */
+.about-details .wp-block-column {
+  flex: 1;
+}
+
+/* Image Column */
+.about-details .wp-block-column:has(.wp-block-image) {
+  flex: 0 0 45%;
+}
+
+/* Content Column */
+.about-details .wp-block-column:has(h2, h3, h4) {
+  flex: 0 0 55%;
+}
+
+/* Image Styling */
+.about-details .wp-block-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Full Width Image */
+.about-details .wp-block-image:not(.wp-block-column .wp-block-image) {
+  margin: 3rem 0;
+}
+
+.about-details .wp-block-image:not(.wp-block-column .wp-block-image) img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* List Styling for Core Values */
+.about-details .wp-block-list,
+.about-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.about-details .wp-block-list li,
+.about-details ul li {
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.about-details .wp-block-list li strong,
+.about-details ul li strong {
+  color: #001568;
+  font-size: 1.125rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-details .wp-block-list li p,
+.about-details ul li p {
+  color: #334486;
+  margin-bottom: 0;
+}
+
+/* Core Values Section with Multiple Items */
+.about-details .wp-block-group.has-background {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Alternating Layout - Image Left/Right */
+.about-details .wp-block-columns:nth-of-type(odd) {
+  flex-direction: row;
+}
+
+.about-details .wp-block-columns:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+/* Section with Label */
+.about-details .wp-block-group {
+  margin-bottom: 3rem;
+}
+
+/* Emphasized Text */
+.about-details strong {
+  color: #001568;
+  font-weight: 600;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+  .about-details h1,
+  .about-details h2.wp-block-heading {
+    font-size: 2rem;
+  }
+
+  .about-details h3.wp-block-heading {
+    font-size: 1.5rem;
+  }
+
+  .about-details .wp-block-columns.is-layout-flex {
+    gap: 2rem;
+  }
+
+  .about-details .wp-block-column:has(.wp-block-image) {
+    flex: 0 0 45%;
+  }
+
+  .about-details .wp-block-column:has(h2, h3, h4) {
+    flex: 0 0 55%;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 768px) {
+  .about-details {
+    padding: 0 1rem;
+  }
+
+  /* Stack columns vertically on mobile */
+  .about-details .wp-block-columns.is-layout-flex,
+  .about-details .wp-block-columns:nth-of-type(odd),
+  .about-details .wp-block-columns:nth-of-type(even) {
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  .about-details .wp-block-column:has(.wp-block-image),
+  .about-details .wp-block-column:has(h2, h3, h4) {
+    flex: 1 1 100% !important;
+  }
+
+  /* Heading sizes */
+  .about-details h1,
+  .about-details h2.wp-block-heading {
+    font-size: 1.75rem;
+  }
+
+  .about-details h3.wp-block-heading {
+    font-size: 1.35rem;
+  }
+
+  /* Text size */
+  .about-details p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* List items */
+  .about-details .wp-block-list li,
+  .about-details ul li {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-details .wp-block-list li strong,
+  .about-details ul li strong {
+    font-size: 1rem;
+  }
+
+  /* Section spacing */
+  .about-details > * {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-details .wp-block-columns.is-layout-flex {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .pt-20 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .about-details {
+    padding: 0 0.75rem;
+  }
+
+  .about-details h1,
+  .about-details h2.wp-block-heading {
+    font-size: 1.5rem;
+  }
+
+  .about-details h3.wp-block-heading {
+    font-size: 1.25rem;
+  }
+
+  .about-details p {
+    font-size: 0.9rem;
+  }
+
+  .about-details .wp-block-columns.is-layout-flex {
+    gap: 1.5rem;
   }
 }

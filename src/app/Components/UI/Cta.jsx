@@ -29,7 +29,7 @@ export default function Cta({HomePageData}) {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 grayscale brightness-50"
       >
         <source src={`${HomePageData?.acf?.cta?.cta_video}`} type="video/mp4" />
         Your browser does not support the video tag.
@@ -41,7 +41,7 @@ export default function Cta({HomePageData}) {
         style={{
           background:
             "linear-gradient(180deg, #003B8A 0%, #0065EC 48%, #FFFFFF 100%)",
-          opacity: 0.75,
+          opacity: 0.45,
         }}
       ></div>
 
