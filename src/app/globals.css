@@ -58,147 +58,263 @@ h6 {
   font-weight: 700;
 }
 
-/* ========== SERVICE DETAILS SECTION ========== */
+/* Main Container Styling */
+
 .service-details {
+  max-width: 1200px;
+}
+
+/* Block Columns Layout */
+.wp-block-columns.is-layout-flex {
   display: flex;
-  flex-direction: column;
-  gap: 3.5rem; /* gap-14 */
-  margin-top: 2.5rem;
-  padding-bottom: 40px;
+  gap: 0;
+  margin-bottom: 3rem;
+  align-items: center;
 }
 
-@media (min-width: 640px) {
-  .service-details {
-    margin-top: 3.5rem;
-    padding-bottom: 70px;
-  }
+.wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-28f84493,
+.wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-2 {
+  flex-direction: row;
 }
 
-@media (min-width: 1280px) {
-  .service-details {
-    gap: 5.5rem; /* xl:gap-22 */
-  }
-}
+/* Reverse layout for alternating sections */
+/* .wp-block-columns.is-layout-flex.wp-container-core-columns-is-layout-28f84493:nth-of-type(even) {
+  flex-direction: row-reverse;
+} */
 
-/* ---------- Each Service Block ---------- */
-.service-details .wp-block-columns {
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  border: none;
+/* Column Styling */
+.wp-block-column.is-layout-flow {
+  flex: 1;
   padding: 0;
-  position: relative;
 }
 
-@media (min-width: 1280px) {
-  .service-details .wp-block-columns {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  /* Make image container wider */
-  .service-details .wp-block-image {
-    width: 60%;
-    margin-right: -10rem;
-  }
-
-  /* Adjust content position to overlap */
-  .service-details .wp-block-column.is-layout-flow {
-    position: relative;
-    margin-left: -10rem; 
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 2rem;
-    /* padding: 70px; */
-    /* width: 50%; */
-    z-index: 10; /* Ensure content stays above image */
-  }
-
-  /* Reverse layout for even items */
-  /* .service-details .wp-block-columns:nth-child(even) {
-    flex-direction: row-reverse;
-  } */
-
-  /* .service-details .wp-block-columns:nth-child(even) .wp-block-image {
-    margin-right: 0;
-    margin-left: -10rem;
-  }
-
-  .service-details .wp-block-columns:nth-child(even) .wp-block-column.is-layout-flow {
-    margin-left: 0;
-    margin-right: -10rem;
-  } */
-}
-
-/* ---------- Image Section ---------- */
-.service-details .wp-block-image {
-  overflow: hidden;
+/* Image Container */
+.wp-block-image.size-large {
+  margin: 0;
   width: 100%;
-  margin-bottom: 2rem;
+  height: 100%;
+  display: block;
 }
 
-.service-details .wp-block-image img {
+.wp-block-image.size-large img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 1.5rem; /* rounded-3xl */
+  display: block;
+  border-radius: 20px;
 }
 
-@media (min-width: 768px) {
-  .service-details .wp-block-image {
-    height: 400px;
+/* Content Box Styling */
+/* .wp-block-column.is-layout-flow:has(h2) {
+  background: white;
+  padding: 5rem;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+} */
+
+.service-details .wp-block-columns:nth-of-type(1) .wp-block-column.is-layout-flow:has(h2) {
+  background: white;
+  padding: 80px 70px 80px 70px !important;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Second Content Block - Boom Loader Section */
+.service-details .wp-block-columns:nth-of-type(2) .wp-block-column.is-layout-flow:has(h2) {
+  background: white;
+  flex: 0 0 58%;
+  padding: 80px 70px 80px 70px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* First section - Image left, content right with overlay */
+.wp-block-columns.is-layout-flex:first-of-type .wp-block-column:first-child {
+  flex: 0 0 58%;
+  position: relative;
+}
+
+.wp-block-columns.is-layout-flex:first-of-type .wp-block-column:last-child {
+  flex: 0 0 58%;
+  position: relative;
+  margin-left: -15%;
+  z-index: 2;
+}
+
+/* Second section - Content left, image right with overlap */
+.wp-block-columns.is-layout-flex:nth-of-type(2) .wp-block-column:first-child {
+  flex: 0 0 48%;
+  position: relative;
+  margin-right: -15%;
+  z-index: 2;
+}
+
+.wp-block-columns.is-layout-flex:nth-of-type(2) .wp-block-column:last-child {
+  flex: 0 0 58%;
+  position: relative;
+}
+
+/* Heading Styling */
+.wp-block-heading {
+  color: #001568;
+  font-size: 2.5rem;
+  /* font-weight: 700; */
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* Paragraph Styling */
+.wp-block-column p {
+  color: #334486;
+  line-height: 30px;
+  margin-bottom: 1rem;
+}
+
+.wp-block-column p strong {
+  color: #334486;
+  font-weight: 600;
+}
+
+/* Gallery Styling (if needed) */
+.wp-block-gallery.has-nested-images.columns-default {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.wp-block-gallery figure.wp-block-image {
+  margin: 0;
+}
+
+.wp-block-gallery figure.wp-block-image img {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+  .service-details .wp-block-columns.is-layout-flex .wp-block-column:first-child,
+  .service-details .wp-block-columns.is-layout-flex .wp-block-column:last-child {
+    flex: 0 0 50%;
+    margin: 0 1rem;
+  }
+
+  .service-details .wp-block-column.is-layout-flow:has(h2) {
+    padding: 2rem;
+  }
+
+  .service-details .wp-block-heading {
+    font-size: 2rem;
   }
 }
 
-@media (min-width: 1280px) {
-  .service-details .wp-block-image {
+/* Mobile Design - Card Style Layout */
+@media (max-width: 768px) {
+  .pt-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Stack columns vertically */
+  .service-details .wp-block-columns.is-layout-flex {
+    flex-direction: column !important;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
+
+  /* Remove flex basis and margins */
+  .service-details .wp-block-columns.is-layout-flex .wp-block-column:first-child,
+  .service-details .wp-block-columns.is-layout-flex .wp-block-column:last-child {
+    flex: 1 1 100%;
+    margin: 0;
+    z-index: 1;
+  }
+
+  /* Card container styling */
+  .service-details .wp-block-columns.is-layout-flex {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+  }
+
+  /* Image styling in mobile - rounded and contained */
+  .service-details .wp-block-image.size-large {
+    margin-bottom: 1.5rem;
+  }
+
+  .service-details .wp-block-image.size-large img {
+    border-radius: 15px;
     width: 100%;
-    height: 561px;
+    height: auto;
+  }
+
+  /* Content area - remove extra padding and background */
+  .service-details .wp-block-column.is-layout-flow:has(h2) {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  /* Heading - smaller and tighter spacing */
+  .service-details .wp-block-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #001B5E;
+  }
+
+  /* Paragraph - adjust spacing */
+  .service-details .wp-block-column p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    color: #4A5568;
+  }
+
+  .service-details .wp-block-column p:last-child {
     margin-bottom: 0;
   }
-
 }
 
-/* ---------- Content Section ---------- */
-.service-details .wp-block-column.is-layout-flow {
-  background-color: #ffffff;
-  border-radius: 2rem;
-  width: 100%;
-  z-index: 10;
-}
-
-@media (min-width: 1280px) {
-  .service-details .wp-block-column.is-layout-flow {
-    border: 1px solid #e5e7eb;
-    max-width: 680px;
-    width: 50%;
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .pt-20 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
-}
 
-/* ---------- Heading ---------- */
-.service-details h2.wp-block-heading {
-  font-family: var(--font-montserrat), sans-serif;
-  font-weight: 600;
-  color: #001568;
-  font-size: 24px;
-  line-height: 1.3;
-  margin-bottom: 1rem;
-  /* padding: 50px; */
-  padding: 50px 0 0 50px;
-}
-
-@media (min-width: 768px) {
-  .service-details h2.wp-block-heading {
-    font-size: 34px;
+  .service-details {
+    padding: 0 0.75rem;
   }
-}
 
-/* ---------- Paragraph / Text ---------- */
-.service-details p {
-  font-family: var(--font-inter), sans-serif;
-  color: #334486;
-  font-size: 17px;
-  line-height: 30px;
-  padding-left: 53px;
-  padding-bottom: 50px;
+  .service-details .wp-block-columns.is-layout-flex {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-details .wp-block-image.size-large {
+    margin-bottom: 1rem;
+  }
+
+  .service-details .wp-block-heading {
+    font-size: 1.25rem;
+  }
+
+  .service-details .wp-block-column p {
+    font-size: 0.9rem;
+  }
 }
