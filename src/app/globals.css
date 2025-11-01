@@ -60,7 +60,7 @@ h6 {
 
 /* Main Container Styling */
 
-/* Block Columns Layout - Desktop keeps original order *//* Block Columns Layout - Desktop keeps original order */
+/* Block Columns Layout - Desktop keeps original order */ /* Block Columns Layout - Desktop keeps original order */
 .service-details .wp-block-columns.is-layout-flex {
   display: flex;
   gap: 0;
@@ -102,12 +102,16 @@ h6 {
 }
 
 /* ODD Sections (1st, 3rd, 5th...) - Image Left, Content Right */
-.service-details .wp-block-columns:nth-of-type(odd) .wp-block-column:first-child {
+.service-details
+  .wp-block-columns:nth-of-type(odd)
+  .wp-block-column:first-child {
   flex: 0 0 58%;
   position: relative;
 }
 
-.service-details .wp-block-columns:nth-of-type(odd) .wp-block-column:last-child {
+.service-details
+  .wp-block-columns:nth-of-type(odd)
+  .wp-block-column:last-child {
   flex: 0 0 54%;
   position: relative;
   margin-left: -15%;
@@ -115,14 +119,18 @@ h6 {
 }
 
 /* EVEN Sections (2nd, 4th, 6th...) - Content Left, Image Right */
-.service-details .wp-block-columns:nth-of-type(even) .wp-block-column:first-child {
+.service-details
+  .wp-block-columns:nth-of-type(even)
+  .wp-block-column:first-child {
   flex: 0 0 58%;
   position: relative;
   margin-right: -15%;
   z-index: 2;
 }
 
-.service-details .wp-block-columns:nth-of-type(even) .wp-block-column:last-child {
+.service-details
+  .wp-block-columns:nth-of-type(even)
+  .wp-block-column:last-child {
   flex: 0 0 54%;
   position: relative;
 }
@@ -160,8 +168,6 @@ h6 {
 
 /* Responsive Design - Tablet */
 @media (max-width: 1200px) {
-  
-
   .service-details .wp-block-column.is-layout-flow:has(h2) {
     padding: 2rem;
   }
@@ -191,10 +197,18 @@ h6 {
   }
 
   /* Remove flex basis and margins for all sections */
-  .service-details .wp-block-columns:nth-of-type(odd) .wp-block-column:first-child,
-  .service-details .wp-block-columns:nth-of-type(odd) .wp-block-column:last-child,
-  .service-details .wp-block-columns:nth-of-type(even) .wp-block-column:first-child,
-  .service-details .wp-block-columns:nth-of-type(even) .wp-block-column:last-child {
+  .service-details
+    .wp-block-columns:nth-of-type(odd)
+    .wp-block-column:first-child,
+  .service-details
+    .wp-block-columns:nth-of-type(odd)
+    .wp-block-column:last-child,
+  .service-details
+    .wp-block-columns:nth-of-type(even)
+    .wp-block-column:first-child,
+  .service-details
+    .wp-block-columns:nth-of-type(even)
+    .wp-block-column:last-child {
     flex: 1 1 100% !important;
     width: 100% !important;
     margin: 0 !important;
@@ -227,17 +241,17 @@ h6 {
 
   /* Heading - smaller and tighter spacing */
   .service-details .wp-block-heading {
-    font-size: 1.5rem;
+    font-size: 34px !important;
     margin-bottom: 1rem;
-    color: #001B5E;
+    color: #001b5e;
   }
 
   /* Paragraph - adjust spacing */
   .service-details .wp-block-column p {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 17px !important;
+    color: #334486;
+    line-height: 30px;
     margin-bottom: 0.75rem;
-    color: #4A5568;
   }
 
   .service-details .wp-block-column p:last-child {
@@ -250,7 +264,7 @@ h6 {
   /* Stack ALL columns vertically first */
   .service-details .wp-block-columns.is-layout-flex {
     flex-direction: column !important;
-    padding: 1rem;
+    padding: 30px 30px 40px 30px !important;
     margin-bottom: 1.5rem;
   }
 
@@ -264,10 +278,13 @@ h6 {
   }
 
   .service-details .wp-block-heading {
-    font-size: 1.25rem;
+    font-size: 24px !important;
+    padding-top: 20px !important;
   }
 
   .service-details .wp-block-column p {
-    font-size: 0.9rem;
+    font-size: 17px !important;
+    color: #334486;
+    line-height: 30px;
   }
 }
