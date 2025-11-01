@@ -60,12 +60,7 @@ h6 {
 
 /* Main Container Styling */
 
-/* Main Container Styling */
-
-
-
-
-/* Block Columns Layout - Desktop keeps original order */
+/* Block Columns Layout - Desktop keeps original order *//* Block Columns Layout - Desktop keeps original order */
 .service-details .wp-block-columns.is-layout-flex {
   display: flex;
   gap: 0;
@@ -99,11 +94,11 @@ h6 {
 /* Default Content Box Styling for all sections */
 .service-details .wp-block-column.is-layout-flow:has(h2) {
   background: white;
+  border: 1px solid #f0f0f0;
   padding: 80px 70px;
   border-radius: 20px;
   position: relative;
   z-index: 1;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ODD Sections (1st, 3rd, 5th...) - Image Left, Content Right */
@@ -135,7 +130,7 @@ h6 {
 /* Heading Styling */
 .service-details .wp-block-heading {
   color: #001568;
-  font-size: 2.5rem;
+  font-size: 34px;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -152,14 +147,6 @@ h6 {
   font-weight: 600;
 }
 
-/* Gallery Styling (if needed) */
-.service-details .wp-block-gallery.has-nested-images.columns-default {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
 .service-details .wp-block-gallery figure.wp-block-image {
   margin: 0;
 }
@@ -172,12 +159,8 @@ h6 {
 }
 
 /* Responsive Design - Tablet */
-@media (max-width: 1024px) {
-  .service-details .wp-block-columns.is-layout-flex .wp-block-column:first-child,
-  .service-details .wp-block-columns.is-layout-flex .wp-block-column:last-child {
-    flex: 0 0 50%;
-    margin: 0 1rem;
-  }
+@media (max-width: 1200px) {
+  
 
   .service-details .wp-block-column.is-layout-flow:has(h2) {
     padding: 2rem;
@@ -189,17 +172,22 @@ h6 {
 }
 
 /* Mobile Design - Card Style Layout */
-@media (max-width: 768px) {
-  .pt-20 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  /* Stack columns vertically */
+@media (max-width: 1000px) {
+  /* Stack ALL columns vertically first */
   .service-details .wp-block-columns.is-layout-flex {
     flex-direction: column !important;
     gap: 0;
     margin-bottom: 2rem;
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+  }
+
+  /* Then reverse EVEN sections to show image first */
+  .service-details .wp-block-columns:nth-of-type(even) {
+    flex-direction: column-reverse !important;
   }
 
   /* Remove flex basis and margins for all sections */
@@ -208,37 +196,33 @@ h6 {
   .service-details .wp-block-columns:nth-of-type(even) .wp-block-column:first-child,
   .service-details .wp-block-columns:nth-of-type(even) .wp-block-column:last-child {
     flex: 1 1 100% !important;
+    width: 100% !important;
     margin: 0 !important;
     z-index: 1 !important;
-  }
-
-  /* Card container styling */
-  .service-details .wp-block-columns.is-layout-flex {
-    background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f0f0f0;
   }
 
   /* Image styling in mobile - rounded and contained */
   .service-details .wp-block-image.size-large {
     margin-bottom: 1.5rem;
+    width: 100% !important;
   }
 
   .service-details .wp-block-image.size-large img {
     border-radius: 15px;
-    width: 100%;
+    width: 100% !important;
     height: auto;
+    display: block;
   }
 
   /* Content area - remove extra padding and background */
   .service-details .wp-block-column.is-layout-flow:has(h2) {
     background: transparent !important;
+    border: 0 !important;
     padding: 0 !important;
     margin: 0 !important;
     box-shadow: none !important;
     border-radius: 0 !important;
+    width: 100% !important;
   }
 
   /* Heading - smaller and tighter spacing */
@@ -263,18 +247,16 @@ h6 {
 
 /* Extra small mobile devices */
 @media (max-width: 480px) {
-  .pt-20 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  .service-details {
-    padding: 0 0.75rem;
-  }
-
+  /* Stack ALL columns vertically first */
   .service-details .wp-block-columns.is-layout-flex {
+    flex-direction: column !important;
     padding: 1rem;
     margin-bottom: 1.5rem;
+  }
+
+  /* Then reverse EVEN sections */
+  .service-details .wp-block-columns:nth-of-type(even) {
+    flex-direction: column-reverse !important;
   }
 
   .service-details .wp-block-image.size-large {
